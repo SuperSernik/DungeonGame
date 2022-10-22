@@ -21,6 +21,8 @@ namespace DungeonGame.Entities
         Texture2D coinTextureAtlas;
         Rectangle[] coinSourceRect;
 
+        string name;
+
         Rectangle coinRect;
         Vector2 coinPos;
 
