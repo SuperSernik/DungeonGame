@@ -83,7 +83,7 @@ namespace DungeonGame.ScreenManagement
             gameScreen = new GameScreen();
 
             // #################  CHANGE DISPLAY SCREEN HERE  ########################
-            currentScreen = splashScreen;
+            currentScreen = gameScreen;
             // #######################################################################
 
             screens.Add(splashScreen);
