@@ -63,14 +63,7 @@ namespace DungeonGame.Entities
                 if (chestIsOpen == false)
                 {
                     chestOpen = true;
-                    chestIsOpen = true;
                 }
-                if (chestIsOpen == true)
-                {
-                    chestOpen = false;
-                    chestIsOpen = false;
-                }
-
 
 
             }
