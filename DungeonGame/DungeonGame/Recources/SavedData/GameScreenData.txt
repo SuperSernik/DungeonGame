@@ -1,0 +1,5 @@
+﻿numberOfCoins:80
+numberOfZombies:5
+numberOfVillagers:1
+map:FTESTMAP
+#maps; FOne, FTwo, FThree, FLargeMapOne, FTESTMAP

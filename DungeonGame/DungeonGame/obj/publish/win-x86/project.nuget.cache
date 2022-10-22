@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "tsOYkMNJ8lcTC8VHlweiGeX6hfEZZxrmv4ovoPl2ph+QzZBv5jwcfdtfBVrirbH/RfKcVPGnfF/GdsWHXTk55Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Academia Work\\Computer Science\\Computer Science Coursework\\Dungeon Game Versions\\DungeonGame_v7\\DungeonGame\\DungeonGame\\DungeonGame.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.9\\microsoft.netcore.app.runtime.win-x86.6.0.9.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\6.0.9\\microsoft.windowsdesktop.app.runtime.win-x86.6.0.9.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.9\\microsoft.aspnetcore.app.runtime.win-x86.6.0.9.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.9\\microsoft.netcore.app.crossgen2.win-x64.6.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}

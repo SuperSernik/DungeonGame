@@ -1,0 +1,111 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
+
+
+namespace DungeonGame.NPCs.Characters
+{
+    class Zombie : NPC
+    {
+
+        private Texture2D zombieTextureAtlas;
+        private Rectangle[] zombieTexturesSourcRect;
+
+
+        private Rectangle zombieRectangle;
+        private Vector2 zombiePos;
+        private float zombieVel;
+
+
+
+        public Zombie()
+        {
+            Random rn = new Random();
+            int x = rn.Next(50);
+            int y = rn.Next(30);
+
+            zombiePos = new Vector2(x * 32, y * 32);
+            zombieRectangle = new Rectangle((int)zombiePos.X, (int)zombiePos.Y, 32, 48);
+            zombieVel = 3f;
+
+        }
+
+        public override void LoadContent(ContentManager Content)
+        {// Load zombie texture atlas
+            zombieTextureAtlas = Content.Load<Texture2D>("NPCTextures/zombieTextureAtlas");
+            zombieTexturesSourcRect = new Rectangle[4];
+            // Set the zombie texture source rectangles for different sta
+            zombieTexturesSourcRect[0] = new Rectangle(0, 0, 32, 48);
+            zombieTexturesSourcRect[1] = new Rectangle(32, 0, 32, 48);
+            zombieTexturesSourcRect[2] = new Rectangle(64, 0, 32, 48);
+            zombieTexturesSourcRect[3] = new Rectangle(96, 0, 32, 48);
+        }
+
+        public override void Draw(SpriteBatch _spriteBatch)
+        {
+            _spriteBatch.Draw(zombieTextureAtlas, zombieRectangle, zombieTexturesSourcRect[0], Color.White);
+        }
+
+        public override void Update(GameTime gameTime, Rectangle playerRect)
+        {
+            zombiePos.X = Lerp(zombiePos.X, playerRect.X, 0.005f);
+            zombiePos.Y = Lerp(zombiePos.Y, playerRect.Y, 0.005f);
+            zombieRectangle = new Rectangle((int)zombiePos.X, (int)zombiePos.Y, 32, 48);
+
+            /*
+            playerPos = Game1.PlayerPosition;
+            zombiePos.X = 
+            zombiePos.Y = 
+            */
+
+            //playerPos = Player.Instance.PlayerPosition;
+        }
+
+
+
+        static float Lerp(float a, float b, float c)
+        {
+            return a + (b - a) * c;
+        }
+        static Vector2 VectorLerp(Vector2 a, Vector2 b, float c)
+        {
+            Vector2 newV = new Vector2();
+
+            newV.X = a.X + (b.X - b.Y) * c;
+            newV.Y = a.Y + (b.Y - b.X) * c;
+
+            return newV;
+
+        }
+
+        public void ZombieMove(string direction)
+        {
+            if (direction == "up")
+            {
+                zombiePos.Y -= zombieVel;
+            }
+
+            if (direction == "down")
+            {
+                zombiePos.Y += zombieVel;
+            }
+
+            if (direction == "left")
+            {
+                zombiePos.X -= zombieVel;
+            }
+
+            if (direction == "right")
+            {
+                zombiePos.X += zombieVel;
+            }
+
+        }
+
+
+    }
+}
