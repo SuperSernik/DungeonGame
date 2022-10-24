@@ -83,7 +83,7 @@ namespace DungeonGame.NPCs.Characters
         public override void Update(GameTime gameTime)
         {
             
-
+            /*
             foreach(var x in path)
             {
                 target.X = x.Row * 32;
@@ -99,17 +99,12 @@ namespace DungeonGame.NPCs.Characters
                     villagerPostion.X += dist.X;
                     villagerPostion.Y += dist.Y;
 
-
                 }
 
-
-
-
-
             }
+            */
 
-
-            /*
+            
             if (!moving)
             {
                 target = getNewTarget();
@@ -128,7 +123,7 @@ namespace DungeonGame.NPCs.Characters
                     villagerPostion.Y = Lerp(villagerPostion.Y, target.Y, 0.05f);
                 }
             }
-            */
+            
 
 
 

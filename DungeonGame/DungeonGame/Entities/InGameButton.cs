@@ -22,6 +22,8 @@ namespace DungeonGame.Entities
 
         string buttonType;
         bool pressed;
+        bool prevState;
+
         Texture2D buttonTextureAtlas;
 
         Rectangle buttonPressed;
@@ -49,16 +51,27 @@ namespace DungeonGame.Entities
             buttonReleased = new Rectangle(0, 0, 32, 32);
             buttonPressed = new Rectangle(32, 0, 32, 32);
 
+            prevState = false;
 
         }
 
 
         public override void Update(GameTime gameTime, Player mainPlayer)
         {
-            if (buttonRECT.Intersects(mainPlayer.playerCollisionBoxRect) && Keyboard.GetState().IsKeyDown(Keys.E))
+            
+
+            if (Keyboard.GetState().IsKeyUp(Keys.E))
+            {
+                pressed = false;
+                prevState = false;
+            }
+            
+            if (buttonRECT.Intersects(mainPlayer.playerCollisionBoxRect) && Keyboard.GetState().IsKeyDown(Keys.E) && prevState == false)
             {
                 pressed = true;
-                if(buttonType == "red" && mainPlayer.playerHealth > 0)
+                prevState = true;
+
+                if (buttonType == "red" && mainPlayer.playerHealth > 0)
                 {
                     mainPlayer.playerHealth--;
                 }
@@ -67,14 +80,13 @@ namespace DungeonGame.Entities
                 {
                     mainPlayer.playerHealth++;
                 }
-                
-
 
             }
-            else
-            {
-                pressed=false;
-            }
+            
+
+
+
+
         }
 
         public override void Draw(SpriteBatch _spriteBatch)

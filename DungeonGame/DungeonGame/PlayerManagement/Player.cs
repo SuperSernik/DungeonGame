@@ -75,7 +75,7 @@ namespace DungeonGame.PlayerManagement
         public void LoadContent(ContentManager Content)
         {
             sourceRectangles = new Rectangle[5];
-            playerTileSet = Content.Load<Texture2D>("PlayerTextures/RedBlobTileSet");
+            playerTileSet = Content.Load<Texture2D>("PlayerTextures/redRectTextureAtlas");
             //playerPosition = new Vector2((ScreenManager.Instance.Resolution.X / 2) - 16, (ScreenManager.Instance.Resolution.Y / 2) - 16);
             playerPosition = playerStartPos();
             playerRect = new Rectangle((int)playerPosition.X, (int)playerPosition.Y, playerWidth, playerHeight);
@@ -295,7 +295,7 @@ namespace DungeonGame.PlayerManagement
 
         }
 
-        void Animate(GameTime gameTime)
+        void AnimateOri(GameTime gameTime)
         {
             if (timer > threshold)
             {
@@ -322,9 +322,39 @@ namespace DungeonGame.PlayerManagement
                 timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
         }
+        bool forward = true;
+        void Animate(GameTime gameTime)
+        {
+            if (timer > threshold)
+            {
+                
+                if (forward)
+                {
+                    currAnimationIndex++;
+                    if(currAnimationIndex == 5)
+                    {
+                        forward = false;
+                    }
+                }
+                if (!forward)
+                {
+                    currAnimationIndex--;
+                    if (currAnimationIndex == 0)
+                    {
+                        forward = true;
+                    }
+                }
+
+                timer = 0;
+            }
+            else
+            {
+                timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            }
+        }
 
 
-            Rectangle[] GetSourceRects(string wayFacing)
+        Rectangle[] GetSourceRects(string wayFacing)
             {
                 Rectangle[] Idle = new Rectangle[5];
                 Idle[0] = new Rectangle(0, 0, playerWidth, playerHeight);
