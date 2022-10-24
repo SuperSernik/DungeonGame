@@ -72,8 +72,8 @@ namespace DungeonGame
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
 
+            GraphicsDevice.Clear(Color.Black);
 
             ScreenManager.Instance.Draw(_spriteBatch);
             OverlayManager.Instance.Draw(_spriteBatch);

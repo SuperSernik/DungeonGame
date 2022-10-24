@@ -89,6 +89,11 @@ namespace DungeonGame.Entities
 
             }
 
+            if (GameScreen.developerView)
+            {
+                _spriteBatch.Draw(DevTexturesManger.Instance.whiteBox1px, buttonRECT, Color.Azure);
+            }
+
 
         }
     }

@@ -65,35 +65,11 @@ namespace DungeonGame.ScreenManagement
         public static Vector2 MapDimentions;
 
 
-        void SetResAndScreenSize(bool fs)
-        {
-
-            if(fs == true)
-            {
-                Resolution = new Vector2(1920, 1080);
-                IsFULL_SCREEN = true;
-
-
-            }
-            else
-            {
-                Resolution = new Vector2(1600, 960);
-                IsFULL_SCREEN = true;
-
-            }
-
-
-            fullScreen = IsFULL_SCREEN;
-            prevFullscreenState = !IsFULL_SCREEN;
-
-            //Resolution = new Vector2(1280, 720);
-
-        }
 
 
         public ScreenManager()
         {
-            SetResAndScreenSize(true);
+            SetResAndScreenSize(false);
 
 
             setMap();
@@ -231,6 +207,31 @@ namespace DungeonGame.ScreenManagement
             {
                 return false;
             }
+
+        }
+
+        void SetResAndScreenSize(bool fs)
+        {
+
+            if (fs == true)
+            {
+                Resolution = new Vector2(1920, 1080);
+                IsFULL_SCREEN = true;
+
+
+            }
+            if (fs == false)
+            {
+                Resolution = new Vector2(1600, 960);
+                IsFULL_SCREEN = false;
+
+            }
+
+
+            fullScreen = IsFULL_SCREEN;
+            prevFullscreenState = !IsFULL_SCREEN;
+
+            //Resolution = new Vector2(1280, 720);
 
         }
 

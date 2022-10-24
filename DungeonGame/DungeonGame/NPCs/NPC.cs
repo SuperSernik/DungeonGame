@@ -12,6 +12,8 @@ namespace DungeonGame.NPCs
 {
     public class NPC
     {
+        public string type;
+        public bool remove;
         public virtual void LoadContent(ContentManager Content) { }
 
         public virtual void Update(GameTime gameTime) { }
