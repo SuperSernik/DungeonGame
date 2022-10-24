@@ -10,9 +10,11 @@ using System.Threading.Tasks;
 
 namespace DungeonGame.Entities
 {
-    abstract class Entity
+    class Entity
     {
-        
+
+        public string type;
+        public bool remove;
 
         public virtual void LoadContent(ContentManager Content) { }
 

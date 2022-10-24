@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using DungeonGame.ScreenManagement;
 using DungeonGame.PlayerManagement;
 using DungeonGame.BackendDev;
+using DungeonGame.ScreenManagement.Screens;
 
 namespace DungeonGame.Entities
 {
@@ -30,6 +31,7 @@ namespace DungeonGame.Entities
 
             row = NEWrow;
             col = NEWcol;
+            this.type = "chest";
 
         }
 
@@ -84,6 +86,10 @@ namespace DungeonGame.Entities
 
             }
 
+            if (GameScreen.developerView)
+            {
+                _spriteBatch.Draw(DevTexturesManger.Instance.whiteBox1px, chestRectangle, Color.Coral);
+            }
 
 
 

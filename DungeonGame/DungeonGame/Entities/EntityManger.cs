@@ -9,28 +9,77 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DungeonGame.ScreenManagement.Screens;
+using System.Reflection.Metadata;
 
 namespace DungeonGame.Entities
 {
     class EntityManger
     {
+        List<Entity> Entities = new List<Entity>();
+
+        public EntityManger()
+        {
+
+        }
+
+        public void LoadContent(ContentManager Content)
+        {
+            addEntitiesToList(DrawChests(Content));
+            addEntitiesToList(CreateCoins(Content, GameScreen.numberOfCoins));
+            addEntitiesToList(CreateInGameButton(Content));
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            List<Entity> toRem = new List<Entity>();
+            foreach (Entity entity in Entities)
+            {
+                entity.Update(gameTime);
+                entity.Update(gameTime, GameScreen.MainPlayer);
+
+                if(entity.remove == true)
+                {
+                    toRem.Add(entity);
+                }
+
+            }
+            
+            foreach (Entity en in toRem)
+            {
+                Entities.Remove(en);
+            }
+
+        }
+
+        public void Draw(SpriteBatch _spriteBatch)
+        {
+            foreach (Entity entity in Entities) { entity.Draw(_spriteBatch); }
+
+        }
+
+
+
+
+        void addEntitiesToList(List<Entity> listOfEntities)
+        {
+            foreach (Entity en in listOfEntities)
+            {
+                Entities.Add(en);
+            }
+        }
 
         public List<Entity> DrawChests(ContentManager Content)
         {
             TileSearch ts = new TileSearch();
-            // Returns all of the positions where a chest should be.
             List<PositionOnMap> ListOfChestPositions = ts.ReturnLocationsOfObjectsFromForeground('C');
             List<Entity> ListOfChestsToDraw = new List<Entity>();
 
             foreach (PositionOnMap x in ListOfChestPositions)
             {
-                // Foreach place that there is a chest on the map 
-                // create a new chest.
+
                 Chest c = new Chest(x.Row, x.Col);
-                // Load its texture into memory.
                 c.LoadContent(Content);
-                // Add it to the list of chests that will be 
-                // used to draw it later.
                 ListOfChestsToDraw.Add(c);
 
             }

@@ -28,7 +28,7 @@ namespace DungeonGame.Entities
         int threshold;
         int currentFrame;
 
-        bool collected = false;
+        public bool collected = false;
 
         
 
@@ -36,6 +36,7 @@ namespace DungeonGame.Entities
         {
             coinSourceRect=new Rectangle[8];
             currentFrame=0;
+            this.type = "Coin";
 
         }
 
@@ -86,6 +87,10 @@ namespace DungeonGame.Entities
 
         public override void Update(GameTime gameTime, Player mainPlayer)
         {
+            if (collected)
+            {
+                this.remove = true;
+            }
             // Animates the coin
             Animate(gameTime);
             // if the player walks into the coin
@@ -128,10 +133,13 @@ namespace DungeonGame.Entities
 
         public override void Draw(SpriteBatch _spriteBatch)
         {
-            if (!collected)
+            _spriteBatch.Draw(coinTextureAtlas, coinPos, coinSourceRect[currentFrame], Color.White);
+
+            if (GameScreen.developerView)
             {
-                _spriteBatch.Draw(coinTextureAtlas, coinPos, coinSourceRect[currentFrame], Color.White);
+                _spriteBatch.Draw(DevTexturesManger.Instance.whiteBox1px, coinPos, Color.Aquamarine);
             }
+            
         }
     }
 }

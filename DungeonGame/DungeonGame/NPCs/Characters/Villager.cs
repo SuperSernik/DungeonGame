@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DungeonGame.BackendDev;
+using DungeonGame.ScreenManagement.Screens;
 
 namespace DungeonGame.NPCs.Characters
 {
@@ -154,6 +155,11 @@ namespace DungeonGame.NPCs.Characters
             _spriteBatch.Draw(villagerTextureAtlas, villagerRectangle, textureSourcRects[0], Color.White);
 
             _spriteBatch.Draw(DevTexturesManger.Instance.redNode2px, target, Color.White);
+
+            if (GameScreen.developerView)
+            {
+                _spriteBatch.Draw(DevTexturesManger.Instance.whiteBox1px, villagerRectangle, Color.Chocolate);
+            }
 
         }
 

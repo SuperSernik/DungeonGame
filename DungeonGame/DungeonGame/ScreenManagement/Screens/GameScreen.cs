@@ -19,9 +19,7 @@ namespace DungeonGame.ScreenManagement.Screens
     public class GameScreen : UserScreen
     {
 
-        int numberOfZombies;
-        int numberOfVillagers;
-        int numberOfCoins;
+        public static int numberOfZombies, numberOfVillagers, numberOfCoins;
         public static bool developerView;
 
 
@@ -29,10 +27,8 @@ namespace DungeonGame.ScreenManagement.Screens
         DrawBackground db = new DrawBackground(ScreenManager.visibleMAP);
         EntityManger em = new EntityManger();
         NPCManager nm = new NPCManager();
-
         Camera _camera;
 
-        List<Entity> Entities = new List<Entity>();
         List<NPC> NPCs = new List<NPC>();
 
         public GameScreen()
@@ -47,9 +43,8 @@ namespace DungeonGame.ScreenManagement.Screens
             db.LoadContent(Content);
 
             _camera = new Camera();
-            addEntitiesToList(em.DrawChests(Content));
-            addEntitiesToList(em.CreateCoins(Content, numberOfCoins));
-            addEntitiesToList(em.CreateInGameButton(Content));
+
+            em.LoadContent(Content);
 
             addNPCsToList(nm.CreateZombies(Content, numberOfZombies));
             addNPCsToList(nm.CreateVillagers(Content, numberOfVillagers));
@@ -68,6 +63,7 @@ namespace DungeonGame.ScreenManagement.Screens
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            em.Update(gameTime);
 
             MainPlayer.Update(gameTime);
             _camera.Follow(MainPlayer);
@@ -77,12 +73,7 @@ namespace DungeonGame.ScreenManagement.Screens
                 switchToScreen = "menu";
             }
 
-            foreach (Entity entity in Entities)
-            {
 
-                entity.Update(gameTime);
-                entity.Update(gameTime, MainPlayer);
-            }
 
             foreach (NPC npc in NPCs)
             {
@@ -97,15 +88,14 @@ namespace DungeonGame.ScreenManagement.Screens
         {
             _spriteBatch.Begin(transformMatrix: _camera.Transform);
 
-
             base.Draw(_spriteBatch);
             db.Draw(_spriteBatch);
 
 
-            foreach (Entity entity in Entities) { entity.Draw(_spriteBatch); }
 
             foreach(NPC npc in NPCs) { npc.Draw(_spriteBatch); }
 
+            em.Draw(_spriteBatch);
 
 
             MainPlayer.Draw(_spriteBatch);
@@ -147,6 +137,7 @@ namespace DungeonGame.ScreenManagement.Screens
 
 
 
+
         void addNPCsToList(List<NPC> listOfNPCs)
         {
             foreach (NPC npc in listOfNPCs)
@@ -154,13 +145,8 @@ namespace DungeonGame.ScreenManagement.Screens
                 NPCs.Add(npc);
             }
         }
-        void addEntitiesToList(List<Entity> listOfEntities)
-        {
-            foreach (Entity en in listOfEntities)
-            {
-                Entities.Add(en);
-            }
-        }
+
+
 
     }
 }
