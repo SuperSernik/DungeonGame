@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using DungeonGame.BackendDev;
+using DungeonGame.ScreenManagement.Screens;
 
 namespace DungeonGame.PlayerManagement
 {
@@ -16,7 +17,7 @@ namespace DungeonGame.PlayerManagement
     {
         // PLAYER
         private Texture2D playerTileSet;
-        public Vector2 playerPosition;
+        public Vector2 playerPosition, playerPositionORIGIN;
         public Rectangle playerRect;
         private int playerWidth = 32;
         private int playerHeight = 48;
@@ -58,7 +59,7 @@ namespace DungeonGame.PlayerManagement
         Texture2D whitePixel;
 
         // LINE
-        Line l = new Line(40);
+        //Line l = new Line();
 
         public Player()
         {
@@ -93,7 +94,6 @@ namespace DungeonGame.PlayerManagement
             playerPurse = 0000;
             playerHealth = 5;
 
-            l.LoadContent(Content);
 
         }
 
@@ -146,8 +146,6 @@ namespace DungeonGame.PlayerManagement
             Animate(gameTime);
             PlayerMoving = false;
             visableMap = ScreenManager.visibleMAP;
-
-            l.Update(gameTime, this);
             
             DrawPlayerHitBox(playerTOP, playerBOTTOM, playerLEFT, playerRIGHT);
 
@@ -183,6 +181,8 @@ namespace DungeonGame.PlayerManagement
                 PlayerMoving = true;
             }
 
+
+            playerPositionORIGIN = playerPosition + new Vector2(16, 24);
 
 
             if (!PlayerMoving)
@@ -278,12 +278,20 @@ namespace DungeonGame.PlayerManagement
                 }
             }
 
-            _spriteBatch.Draw(whitePixel, playerTOP, topCOLOR); //TOP
-            _spriteBatch.Draw(whitePixel, playerBOTTOM, bottomCOLOR); // BOTTOM
-            _spriteBatch.Draw(whitePixel, playerLEFT,  leftCOLOR); // LEFT
-            _spriteBatch.Draw(whitePixel, playerRIGHT, rightCOLOR); // RIGHT
 
-            l.Draw(_spriteBatch);
+            if (GameScreen.developerView)
+            {
+                _spriteBatch.Draw(DevTexturesManger.Instance.whiteBox1px, playerRect, Color.BlueViolet);
+
+                _spriteBatch.Draw(whitePixel, playerTOP, topCOLOR); //TOP
+                _spriteBatch.Draw(whitePixel, playerBOTTOM, bottomCOLOR); // BOTTOM
+                _spriteBatch.Draw(whitePixel, playerLEFT, leftCOLOR); // LEFT
+                _spriteBatch.Draw(whitePixel, playerRIGHT, rightCOLOR); // RIGHT
+
+            }
+
+            
+
 
         }
 

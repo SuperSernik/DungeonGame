@@ -176,6 +176,7 @@ namespace DungeonGame.MapManagement
         private char[,] fileMapOne = new char[30, 50];
         private char[,] fileMapTwo = new char[30, 50];
         private char[,] fileMapThree= new char[30, 50];
+        private char[,] fileMapFour = new char[30, 50];
 
         private char[,] fileLargeMapOne = new char[100, 100];
         private char[,] fileTESTMAP = new char[100, 100];
@@ -191,6 +192,7 @@ namespace DungeonGame.MapManagement
             fileMapThree = fm.ReadMapFile("mapThree.txt");
             fileLargeMapOne = fm.ReadMapFile("LargeMapOne.txt");
             fileTESTMAP = fm.ReadMapFile("TESTMAP.txt");
+            fileMapFour = fm.ReadMapFile("MAP.txt");
 
 
         }
@@ -214,6 +216,10 @@ namespace DungeonGame.MapManagement
         public char[,] FTESTMAP
         {
             get { return fileTESTMAP; }
+        }
+        public char[,] FMAPfour
+        {
+            get { return fileMapFour; }
         }
 
         // #################################  STORED LAYERS  ##################################### 

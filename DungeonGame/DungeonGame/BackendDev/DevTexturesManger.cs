@@ -24,13 +24,16 @@ namespace DungeonGame.BackendDev
             }
         }
 
-        public Texture2D redNode, blueBox;
+        public Texture2D redNode2px, blueBox2px, blueBox1px, whiteBox1px;
         
 
         public void LoadContent(ContentManager Content)
         {
-            redNode = Content.Load<Texture2D>("DevAidTextures/redNode2px");
-            blueBox = Content.Load<Texture2D>("DevAidTextures/blueBox2px");
+            redNode2px = Content.Load<Texture2D>("DevAidTextures/redNode2px");
+            blueBox2px = Content.Load<Texture2D>("DevAidTextures/blueBox2px");
+            blueBox1px = Content.Load<Texture2D>("DevAidTextures/blueBox1px");
+            whiteBox1px = Content.Load<Texture2D>("DevAidTextures/whiteBox1px");
+
 
 
         }

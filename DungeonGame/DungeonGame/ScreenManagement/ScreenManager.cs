@@ -140,6 +140,13 @@ namespace DungeonGame.ScreenManagement
                         MapDimentions = new Vector2(100, 100);
                         return;
                     }
+                    else if (lines[1] == "FMAPfour")
+                    {
+                        visibleMAP = MapLayerManager.Instance.FMAPfour;
+                        visibleLAYER = MapLayerManager.Instance.layerOne;
+                        MapDimentions = new Vector2(50, 30);
+                        return;
+                    }
 
 
                 }

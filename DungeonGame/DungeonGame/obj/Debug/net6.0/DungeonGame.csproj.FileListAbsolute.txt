@@ -304,3 +304,6 @@ C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursewor
 C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\obj\Debug\net6.0\DungeonGame.pdb
 C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\obj\Debug\net6.0\DungeonGame.genruntimeconfig.cache
 C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\obj\Debug\net6.0\ref\DungeonGame.dll
+C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Recources\Maps\MAP.txt
+C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Content\DevAidTextures\blueBox1px.xnb
+C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Content\DevAidTextures\whiteBox1px.xnb

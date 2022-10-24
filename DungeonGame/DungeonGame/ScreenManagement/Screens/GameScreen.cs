@@ -22,6 +22,7 @@ namespace DungeonGame.ScreenManagement.Screens
         int numberOfZombies;
         int numberOfVillagers;
         int numberOfCoins;
+        public static bool developerView;
 
 
         public static Player MainPlayer = new Player();
@@ -133,6 +134,10 @@ namespace DungeonGame.ScreenManagement.Screens
                 if (lines[0] == "numberOfVillagers")
                 {
                     numberOfVillagers = Convert.ToInt32(lines[1]);
+                }
+                if (lines[0] == "devView")
+                {
+                    developerView = Convert.ToBoolean(lines[1]);
                 }
 
             }

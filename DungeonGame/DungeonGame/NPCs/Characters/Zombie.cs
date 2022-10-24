@@ -5,7 +5,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
-
+using DungeonGame.BackendDev;
+using MonoGame.Framework.Utilities.Deflate;
+using DungeonGame.ScreenManagement;
+using DungeonGame.ScreenManagement.Screens;
 
 namespace DungeonGame.NPCs.Characters
 {
@@ -20,7 +23,7 @@ namespace DungeonGame.NPCs.Characters
         private Vector2 zombiePos;
         private float zombieVel;
 
-
+        Line zL;
 
         public Zombie()
         {
@@ -31,6 +34,8 @@ namespace DungeonGame.NPCs.Characters
             zombiePos = new Vector2(x * 32, y * 32);
             zombieRectangle = new Rectangle((int)zombiePos.X, (int)zombiePos.Y, 32, 48);
             zombieVel = 3f;
+
+            zL = new Line(zombiePos, new Vector2(ScreenManager.Instance.Resolution.X / 2, ScreenManager.Instance.Resolution.Y / 2));
 
         }
 
@@ -43,11 +48,8 @@ namespace DungeonGame.NPCs.Characters
             zombieTexturesSourcRect[1] = new Rectangle(32, 0, 32, 48);
             zombieTexturesSourcRect[2] = new Rectangle(64, 0, 32, 48);
             zombieTexturesSourcRect[3] = new Rectangle(96, 0, 32, 48);
-        }
 
-        public override void Draw(SpriteBatch _spriteBatch)
-        {
-            _spriteBatch.Draw(zombieTextureAtlas, zombieRectangle, zombieTexturesSourcRect[0], Color.White);
+            zL.LoadContent(Content);
         }
 
         public override void Update(GameTime gameTime, Rectangle playerRect)
@@ -55,6 +57,8 @@ namespace DungeonGame.NPCs.Characters
             zombiePos.X = Lerp(zombiePos.X, playerRect.X, 0.005f);
             zombiePos.Y = Lerp(zombiePos.Y, playerRect.Y, 0.005f);
             zombieRectangle = new Rectangle((int)zombiePos.X, (int)zombiePos.Y, 32, 48);
+
+            zL.Update(gameTime, zombiePos, GameScreen.MainPlayer.playerPositionORIGIN);
 
             /*
             playerPos = Game1.PlayerPosition;
@@ -64,6 +68,13 @@ namespace DungeonGame.NPCs.Characters
 
             //playerPos = Player.Instance.PlayerPosition;
         }
+        public override void Draw(SpriteBatch _spriteBatch)
+        {
+            _spriteBatch.Draw(zombieTextureAtlas, zombieRectangle, zombieTexturesSourcRect[0], Color.White);
+            zL.Draw(_spriteBatch);
+        }
+
+
 
 
 

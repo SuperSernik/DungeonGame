@@ -153,7 +153,7 @@ namespace DungeonGame.NPCs.Characters
         {
             _spriteBatch.Draw(villagerTextureAtlas, villagerRectangle, textureSourcRects[0], Color.White);
 
-            _spriteBatch.Draw(DevTexturesManger.Instance.redNode, target, Color.White);
+            _spriteBatch.Draw(DevTexturesManger.Instance.redNode2px, target, Color.White);
 
         }
 

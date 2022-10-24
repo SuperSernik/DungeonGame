@@ -34,6 +34,9 @@
     <None Update="Recources\Maps\LargeMapOne.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Recources\Maps\MAP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Recources\Maps\mapOne.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

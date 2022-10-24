@@ -2,4 +2,5 @@
 numberOfZombies:5
 numberOfVillagers:1
 map:FTESTMAP
-#maps; FOne, FTwo, FThree, FLargeMapOne, FTESTMAP
+devView:true
+#maps; FOne, FTwo, FThree, FLargeMapOne, FTESTMAP, FMAPfour
