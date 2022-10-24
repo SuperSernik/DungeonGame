@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DungeonGame.BackendDev;
 
 namespace DungeonGame.ScreenManagement.Overlays
 {
@@ -16,11 +17,13 @@ namespace DungeonGame.ScreenManagement.Overlays
     {
 
         StatsDisplay std = new StatsDisplay();
+        MouseManager mm = new MouseManager();
 
         public override void LoadContent(ContentManager content)
         {
             base.LoadContent(content);
             std.LoadContent(content);
+            mm.LoadContent(content);
 
         }
 
@@ -28,12 +31,14 @@ namespace DungeonGame.ScreenManagement.Overlays
         {
             base.Update(gameTime);
             std.Update(gameTime);
+            mm.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch _spriteBatch)
         {
             base.Draw(_spriteBatch);
             std.Draw(_spriteBatch);
+            mm.Draw(_spriteBatch);  
         }
 
 

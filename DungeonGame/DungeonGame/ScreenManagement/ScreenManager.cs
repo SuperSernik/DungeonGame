@@ -33,6 +33,7 @@ namespace DungeonGame.ScreenManagement
         public UserScreen mainSettingsScreen;
 
         public bool IsFULL_SCREEN;
+        public bool IsMOUSE_VISABLE;
 
         public UserScreen CurrentScreen
         {
@@ -69,6 +70,7 @@ namespace DungeonGame.ScreenManagement
             //Resolution = new Vector2(1280, 720);
 
             IsFULL_SCREEN = false;
+            IsMOUSE_VISABLE = false;
 
             //MapDimentions = new Vector2(100, 100);
 
@@ -146,7 +148,7 @@ namespace DungeonGame.ScreenManagement
                         visibleLAYER = MapLayerManager.Instance.layerOne;
                         MapDimentions = new Vector2(50, 30);
                         return;
-                    }
+                    }       
 
 
                 }
@@ -262,6 +264,7 @@ namespace DungeonGame.ScreenManagement
         public virtual void Update(GameTime gameTime, Game1 game1, GraphicsDeviceManager _graphics)
         {
             //toggleScreenSize(_graphics);
+            
 
             currentScreen.Update(gameTime, game1);
             currentScreen.Update(gameTime);

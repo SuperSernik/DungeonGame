@@ -22,6 +22,7 @@ namespace DungeonGame.BackendDev
         Vector2 linePos;
         float rotation;
         double lineLength;
+        Color lineColor;
 
         Vector2 from, to;
 
@@ -33,6 +34,8 @@ namespace DungeonGame.BackendDev
             {
                 visable = false;
             }
+            lineColor = Color.White;
+
         }
         public Line(Vector2 newFrom, Vector2 newTo)
         {
@@ -50,8 +53,9 @@ namespace DungeonGame.BackendDev
             {
                 visable = false;
             }
+            lineColor = Color.White;
         }
-        public Line(Vector2 newFrom, Vector2 newTo, bool newVISABLE)
+        public Line(Vector2 newFrom, Vector2 newTo, bool newVISABLE, Color newLineColor)
         {
             if (newFrom != Vector2.Zero)
             {
@@ -64,6 +68,7 @@ namespace DungeonGame.BackendDev
 
             }
             visable = newVISABLE;
+            lineColor = newLineColor;
         }
 
 
@@ -132,7 +137,7 @@ namespace DungeonGame.BackendDev
         {
             if (visable)
             {
-                _spriteBatch.Draw(line, new Rectangle((int)linePos.X, (int)linePos.Y, (int)lineLength, 1), null, Color.White, angleOfLine, new Vector2(0, 0), SpriteEffects.None, 0);
+                _spriteBatch.Draw(line, new Rectangle((int)linePos.X, (int)linePos.Y, (int)lineLength, 1), null, lineColor, angleOfLine, new Vector2(0, 0), SpriteEffects.None, 0);
 
             }
 

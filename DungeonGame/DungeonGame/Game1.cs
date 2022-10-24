@@ -29,6 +29,7 @@ namespace DungeonGame
             _graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Resolution.Y;
 
             _graphics.IsFullScreen = ScreenManager.Instance.IsFULL_SCREEN;
+            IsMouseVisible = ScreenManager.Instance.IsMOUSE_VISABLE;
             _graphics.ApplyChanges();
 
             currentGAMESCREEN = "GameScreen";
@@ -59,7 +60,8 @@ namespace DungeonGame
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            
+            IsMouseVisible = ScreenManager.Instance.IsMOUSE_VISABLE;
+
 
             ScreenManager.Instance.Update(gameTime, this, _graphics);
             OverlayManager.Instance.Update(gameTime);

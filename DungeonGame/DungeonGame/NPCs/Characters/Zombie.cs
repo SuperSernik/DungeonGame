@@ -71,6 +71,10 @@ namespace DungeonGame.NPCs.Characters
         public override void Draw(SpriteBatch _spriteBatch)
         {
             _spriteBatch.Draw(zombieTextureAtlas, zombieRectangle, zombieTexturesSourcRect[0], Color.White);
+            if (GameScreen.developerView)
+            {
+                _spriteBatch.Draw(DevTexturesManger.Instance.whiteBox1px, zombieRectangle, Color.YellowGreen);
+            }
             zL.Draw(_spriteBatch);
         }
 
