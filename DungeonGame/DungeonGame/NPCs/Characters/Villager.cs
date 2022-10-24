@@ -24,6 +24,8 @@ namespace DungeonGame.NPCs.Characters
 
         int velocity = 3;
 
+        Line vL;
+
         List<PositionOnMap> path;
 
         public Villager()
@@ -41,10 +43,14 @@ namespace DungeonGame.NPCs.Characters
             // set moving to false as when the player is created at that moment its not moving
             moving = false;
 
+            
+
         }
 
         public override void LoadContent(ContentManager Content)
         {
+            
+
             // Loads the texture atlas of the villager
             villagerTextureAtlas = Content.Load<Texture2D>("NPCTextures/jakeTextureAtlas");
             // Set the position of textures in a texture atlas to an array
@@ -60,8 +66,8 @@ namespace DungeonGame.NPCs.Characters
             path.Add(new PositionOnMap(7, 20));
             path.Add(new PositionOnMap(6, 16));
 
-
-
+            vL = new Line(villagerPostion, target);
+            vL.LoadContent(Content);
         }
 
         public List<PositionOnMap> PathFind()
@@ -71,15 +77,12 @@ namespace DungeonGame.NPCs.Characters
             int tileX = (int)villagerPostion.X / 32;
             int tileY = (int)villagerPostion.Y / 32;
 
-
-
-
-
             return pathToFollow;
         }
 
         public override void Update(GameTime gameTime)
         {
+            
 
             foreach(var x in path)
             {
@@ -130,6 +133,7 @@ namespace DungeonGame.NPCs.Characters
 
 
             villagerRectangle = new Rectangle((int)villagerPostion.X, (int)villagerPostion.Y, 32, 48);
+            vL.Update(gameTime, villagerPostion, target);
         }
         Vector2 getNewTarget()
         {
@@ -159,6 +163,7 @@ namespace DungeonGame.NPCs.Characters
             if (GameScreen.developerView)
             {
                 _spriteBatch.Draw(DevTexturesManger.Instance.whiteBox1px, villagerRectangle, Color.Chocolate);
+                vL.Draw(_spriteBatch);
             }
 
         }

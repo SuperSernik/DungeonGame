@@ -23,13 +23,13 @@ namespace DungeonGame.ScreenManagement.Screens
         public static bool developerView;
 
 
+
         public static Player MainPlayer = new Player();
         DrawBackground db = new DrawBackground(ScreenManager.visibleMAP);
         EntityManger em = new EntityManger();
         NPCManager nm = new NPCManager();
         Camera _camera;
 
-        List<NPC> NPCs = new List<NPC>();
 
         public GameScreen()
         {
@@ -45,9 +45,7 @@ namespace DungeonGame.ScreenManagement.Screens
             _camera = new Camera();
 
             em.LoadContent(Content);
-
-            addNPCsToList(nm.CreateZombies(Content, numberOfZombies));
-            addNPCsToList(nm.CreateVillagers(Content, numberOfVillagers));
+            nm.LoadContent(Content);
 
             MainPlayer.LoadContent(Content);
 
@@ -64,6 +62,7 @@ namespace DungeonGame.ScreenManagement.Screens
         {
             base.Update(gameTime);
             em.Update(gameTime);
+            nm.Update(gameTime);
 
             MainPlayer.Update(gameTime);
             _camera.Follow(MainPlayer);
@@ -73,13 +72,6 @@ namespace DungeonGame.ScreenManagement.Screens
                 switchToScreen = "menu";
             }
 
-
-
-            foreach (NPC npc in NPCs)
-            {
-                npc.Update(gameTime, MainPlayer.HitBox);
-                npc.Update(gameTime); 
-            }
 
             
         }
@@ -92,16 +84,19 @@ namespace DungeonGame.ScreenManagement.Screens
             db.Draw(_spriteBatch);
 
 
-
-            foreach(NPC npc in NPCs) { npc.Draw(_spriteBatch); }
-
             em.Draw(_spriteBatch);
+            nm.Draw(_spriteBatch);
 
 
             MainPlayer.Draw(_spriteBatch);
             _spriteBatch.End();
 
         }
+
+
+
+
+
 
         void setGameScreenData()
         {
@@ -138,13 +133,8 @@ namespace DungeonGame.ScreenManagement.Screens
 
 
 
-        void addNPCsToList(List<NPC> listOfNPCs)
-        {
-            foreach (NPC npc in listOfNPCs)
-            {
-                NPCs.Add(npc);
-            }
-        }
+
+
 
 
 

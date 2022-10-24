@@ -35,6 +35,8 @@ namespace DungeonGame.ScreenManagement
         public bool IsFULL_SCREEN;
         public bool IsMOUSE_VISABLE;
 
+        bool prevFullscreenState, fullScreen;
+
         public UserScreen CurrentScreen
         {
             get { return currentScreen; }
@@ -63,21 +65,41 @@ namespace DungeonGame.ScreenManagement
         public static Vector2 MapDimentions;
 
 
-        public ScreenManager()
+        void SetResAndScreenSize(bool fs)
         {
-            Resolution = new Vector2(1600, 960);
-            //Resolution = new Vector2(1920, 1080);
+
+            if(fs == true)
+            {
+                Resolution = new Vector2(1920, 1080);
+                IsFULL_SCREEN = true;
+
+
+            }
+            else
+            {
+                Resolution = new Vector2(1600, 960);
+                IsFULL_SCREEN = true;
+
+            }
+
+
+            fullScreen = IsFULL_SCREEN;
+            prevFullscreenState = !IsFULL_SCREEN;
+
             //Resolution = new Vector2(1280, 720);
 
-            IsFULL_SCREEN = false;
-            IsMOUSE_VISABLE = false;
+        }
 
-            //MapDimentions = new Vector2(100, 100);
 
-            //visibleMAP = MapLayerManager.Instance.FTESTMAP;
-            //visibleLAYER = MapLayerManager.Instance.layerOne;
+        public ScreenManager()
+        {
+            SetResAndScreenSize(true);
+
 
             setMap();
+            //MapDimentions = new Vector2(100, 100);
+            //visibleMAP = MapLayerManager.Instance.FTESTMAP;
+            //visibleLAYER = MapLayerManager.Instance.layerOne;
 
             splashScreen = new SplashScreen();
             mainMenuScreen = new MenuScreen();
@@ -95,104 +117,30 @@ namespace DungeonGame.ScreenManagement
 
         }
 
-        void setMap()
-        {
-
-            FileManager fm = new FileManager();
-            List<string> data = fm.ReadDataLineByLine("GameScreenData.txt");
-
-            foreach (string x in data)
-            {
-                string[] lines = x.Split(':');
-
-                if (lines[0] == "map")
-                {
-                    if (lines[1] == "FOne")
-                    {
-                        visibleMAP = MapLayerManager.Instance.FMapOne;
-                        visibleLAYER = MapLayerManager.Instance.layerOne;
-                        MapDimentions = new Vector2(50, 30);
-                        return;
-                    }
-                    else if (lines[1] == "FTwo")
-                    {
-                        visibleMAP = MapLayerManager.Instance.FMapTwo;
-                        visibleLAYER = MapLayerManager.Instance.layerOne;
-                        MapDimentions = new Vector2(50, 30);
-                        return;
-                    }
-                    else if(lines[1] == "FThree")
-                    {
-                        visibleMAP = MapLayerManager.Instance.FMapThree;
-                        visibleLAYER = MapLayerManager.Instance.layerOne;
-                        MapDimentions = new Vector2(50, 30);
-                        return;
-                    }
-                    else if(lines[1] == "FLargeMapOne")
-                    {
-                        visibleMAP = MapLayerManager.Instance.FLargeMapOne;
-                        visibleLAYER = MapLayerManager.Instance.layerOne;
-                        MapDimentions = new Vector2(100, 100);
-                        return;
-                    }
-                    else if (lines[1] == "FTESTMAP")
-                    {
-                        visibleMAP = MapLayerManager.Instance.FTESTMAP;
-                        visibleLAYER = MapLayerManager.Instance.layerOne;
-                        MapDimentions = new Vector2(100, 100);
-                        return;
-                    }
-                    else if (lines[1] == "FMAPfour")
-                    {
-                        visibleMAP = MapLayerManager.Instance.FMAPfour;
-                        visibleLAYER = MapLayerManager.Instance.layerOne;
-                        MapDimentions = new Vector2(50, 30);
-                        return;
-                    }       
-
-
-                }
-
-
-            }
-
-        }
-
-        public void changeScreens()
-        {
-            if(true)
-            {
-                
-            }
-            if (true)
-            {
-
-            }
-            if (true)
-            {
-
-            }
-
-        }
 
 
         void toggleScreenSize(GraphicsDeviceManager _graphics)
         {
-            bool fullScreen = false;
-            if (Keyboard.GetState().IsKeyDown(Keys.N) && !fullScreen)
+            if (Keyboard.GetState().IsKeyDown(Keys.F11))
             {
-                Resolution = new Vector2(1920, 1080);
-                _graphics.IsFullScreen = true;
-                _graphics.ApplyChanges();
-                fullScreen = true;
+                if (!fullScreen && prevFullscreenState == true)
+                {
+                    Resolution = new Vector2(1920, 1080);
+                    _graphics.IsFullScreen = true;
+                    _graphics.ApplyChanges();
+                    fullScreen = true;
+                    prevFullscreenState = false;
+                }
+                else if (fullScreen && prevFullscreenState == false)
+                {
+                    Resolution = new Vector2(1600, 960);
+                    _graphics.IsFullScreen = false;
+                    _graphics.ApplyChanges();
+                    fullScreen = false;
+                    prevFullscreenState = true;
+                }
             }
-            else if (Keyboard.GetState().IsKeyDown(Keys.N) && fullScreen)
-            {
-                Resolution = new Vector2(1600, 960);
-                _graphics.IsFullScreen = false;
-                _graphics.ApplyChanges();
-                fullScreen = false;
-            }
+
         }
 
 
@@ -216,55 +164,13 @@ namespace DungeonGame.ScreenManagement
         }
 
 
-        bool switchScreenFromTo(string screenType, string screenToSwitchTo)
-        {
-            if(currentScreen.screenType == screenType && currentScreen.switchToScreen == screenToSwitchTo)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
 
-        }
-
-        void SwitchingScreensLogic()
-        {
-            if (currentScreen.screenType == "splash" && currentScreen.switchToScreen == "menu" && currentScreen != mainMenuScreen)
-            {
-                screens.Remove(currentScreen);
-                currentScreen = mainMenuScreen;
-            }
-
-            if(switchScreenFromTo("menu", "gameScreen"))
-            {
-                currentScreen = gameScreen;
-                mainMenuScreen.switchToScreen = null;
-            }
-            if(switchScreenFromTo("menu", "settingsScreen"))
-            {
-                currentScreen = mainSettingsScreen;
-                mainMenuScreen.switchToScreen = null;
-            }
-            if(switchScreenFromTo("game", "menu"))
-            {
-                currentScreen = mainMenuScreen;
-                gameScreen.switchToScreen = null;
-            }
-            if(switchScreenFromTo("settings", "menu"))
-            {
-                currentScreen = mainMenuScreen;
-                mainSettingsScreen.switchToScreen = null;
-
-            }
-
-        }
 
         public virtual void Update(GameTime gameTime, Game1 game1, GraphicsDeviceManager _graphics)
         {
-            //toggleScreenSize(_graphics);
-            
+            toggleScreenSize(_graphics);
+            //toggleFullscreen();
+
 
             currentScreen.Update(gameTime, game1);
             currentScreen.Update(gameTime);
@@ -315,8 +221,114 @@ namespace DungeonGame.ScreenManagement
         }
 
 
+        bool switchScreenFromTo(string screenType, string screenToSwitchTo)
+        {
+            if (currentScreen.screenType == screenType && currentScreen.switchToScreen == screenToSwitchTo)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
-        
+        }
+
+        void SwitchingScreensLogic()
+        {
+            if (currentScreen.screenType == "splash" && currentScreen.switchToScreen == "menu" && currentScreen != mainMenuScreen)
+            {
+                screens.Remove(currentScreen);
+                currentScreen = mainMenuScreen;
+            }
+
+            if (switchScreenFromTo("menu", "gameScreen"))
+            {
+                currentScreen = gameScreen;
+                mainMenuScreen.switchToScreen = null;
+            }
+            if (switchScreenFromTo("menu", "settingsScreen"))
+            {
+                currentScreen = mainSettingsScreen;
+                mainMenuScreen.switchToScreen = null;
+            }
+            if (switchScreenFromTo("game", "menu"))
+            {
+                currentScreen = mainMenuScreen;
+                gameScreen.switchToScreen = null;
+            }
+            if (switchScreenFromTo("settings", "menu"))
+            {
+                currentScreen = mainMenuScreen;
+                mainSettingsScreen.switchToScreen = null;
+
+            }
+
+        }
+
+
+        void setMap()
+        {
+
+            FileManager fm = new FileManager();
+            List<string> data = fm.ReadDataLineByLine("GameScreenData.txt");
+
+            foreach (string x in data)
+            {
+                string[] lines = x.Split(':');
+
+                if (lines[0] == "map")
+                {
+                    if (lines[1] == "FOne")
+                    {
+                        visibleMAP = MapLayerManager.Instance.FMapOne;
+                        visibleLAYER = MapLayerManager.Instance.layerOne;
+                        MapDimentions = new Vector2(50, 30);
+                        return;
+                    }
+                    else if (lines[1] == "FTwo")
+                    {
+                        visibleMAP = MapLayerManager.Instance.FMapTwo;
+                        visibleLAYER = MapLayerManager.Instance.layerOne;
+                        MapDimentions = new Vector2(50, 30);
+                        return;
+                    }
+                    else if (lines[1] == "FThree")
+                    {
+                        visibleMAP = MapLayerManager.Instance.FMapThree;
+                        visibleLAYER = MapLayerManager.Instance.layerOne;
+                        MapDimentions = new Vector2(50, 30);
+                        return;
+                    }
+                    else if (lines[1] == "FLargeMapOne")
+                    {
+                        visibleMAP = MapLayerManager.Instance.FLargeMapOne;
+                        visibleLAYER = MapLayerManager.Instance.layerOne;
+                        MapDimentions = new Vector2(100, 100);
+                        return;
+                    }
+                    else if (lines[1] == "FTESTMAP")
+                    {
+                        visibleMAP = MapLayerManager.Instance.FTESTMAP;
+                        visibleLAYER = MapLayerManager.Instance.layerOne;
+                        MapDimentions = new Vector2(100, 100);
+                        return;
+                    }
+                    else if (lines[1] == "FMAPfour")
+                    {
+                        visibleMAP = MapLayerManager.Instance.FMAPfour;
+                        visibleLAYER = MapLayerManager.Instance.layerOne;
+                        MapDimentions = new Vector2(50, 30);
+                        return;
+                    }
+
+
+                }
+
+
+            }
+
+        }
 
     }
 }
