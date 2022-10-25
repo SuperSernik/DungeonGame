@@ -18,7 +18,7 @@ namespace DungeonGame.MapManagement
         const char DEFAULT_TEXTURE = ' ';
         const char EMPTY_TEXTURE = '#';
         const char SPAWN_TILE = '@';
-        const char FINISH_TILE = '¬';
+        const char FINISH_TILE = '%';
 
         const char WALL = 'R';
         const char WATER = 'W';
@@ -29,6 +29,7 @@ namespace DungeonGame.MapManagement
         const char BLACK_WHITE_TILE = 'T';
         const char COBBLE = 'E';
         const char LAVA = 'L';
+        const char WOODEN_TP = 'P';
 
 
         private Texture2D tileTextureTileMap;
@@ -139,6 +140,10 @@ namespace DungeonGame.MapManagement
                             _spriteBatch.Draw(tileTextureTileMap, CreateRectangle(tilePos, tileSize, k, l), GetTileSourceRectangle(Convert.ToString(FINISH_TILE)), Color.White);
                             break;
 
+                        case WOODEN_TP:
+                            _spriteBatch.Draw(tileTextureTileMap, CreateRectangle(tilePos, tileSize, k, l), GetTileSourceRectangle(Convert.ToString(WOODEN_TP)), Color.White);
+                            break;
+
                         case '#':
                             break;
                             default:
@@ -152,6 +157,26 @@ namespace DungeonGame.MapManagement
                 }
             }
         }
+
+        Rectangle GetTileSourceRectangleFILE(string tile)
+        {
+            FileManager fm = new FileManager();
+
+            List<string> data = fm.ReadDataLineByLine("TextureData.txt");
+
+            foreach (string x in data)
+            {
+                string[] values = x.Split(':');
+
+                if (values[1] == tile)
+                {
+                    return new Rectangle(Convert.ToInt32(values[2]) * tileSize, Convert.ToInt32(values[3]) * tileSize, tileSize, tileSize);
+                }
+
+            }
+            return new Rectangle(128, 128, tileSize, tileSize);                 //  DEFAULT PINK TEXTURE
+        }
+
 
         Rectangle GetTileSourceRectangle(string tile)
         {
@@ -190,15 +215,12 @@ namespace DungeonGame.MapManagement
                     case "@":
                         return new Rectangle(288, 0, tileSize, tileSize);       // SPAWN
 
-                    case "¬":
+                    case "%":
                         return new Rectangle(256, 0, tileSize, tileSize);       // EXIT
 
+                    case "P":
+                        return new Rectangle(288, 32, tileSize, tileSize);       // WOODEN TELEPORT
 
-                    case "redNode":
-                        return new Rectangle(64, 128, tileSize, tileSize);      // REDNODE
-
-                    case "blueBox":
-                        return new Rectangle(96, 128, tileSize, tileSize);      //  BLUEBOX
                 }
             }
 

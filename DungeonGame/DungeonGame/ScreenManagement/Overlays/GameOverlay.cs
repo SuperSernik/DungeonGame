@@ -2,6 +2,7 @@
 using DungeonGame.PlayerManagement;
 using DungeonGame.ScreenManagement.Screens;
 using DungeonGame.ScreenManagement.ScreenStats;
+using DungeonGame_v2.ItemManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,13 +18,17 @@ namespace DungeonGame.ScreenManagement.Overlays
     {
 
         PlayerInfoDisplay pid = new PlayerInfoDisplay();
-        Line pL = new Line(new Vector2(ScreenManager.Instance.Resolution.X / 2, ScreenManager.Instance.Resolution.Y / 2), Vector2.Zero, GameScreen.developerView, Color.Turquoise);
+        ItemManager im = new ItemManager();
+
+        Line pL = new Line(new Vector2(ScreenManager.Instance.Resolution.X / 2, (ScreenManager.Instance.Resolution.Y / 2) + 10), Vector2.Zero, GameScreen.developerView, Color.Turquoise);
+
 
         public override void LoadContent(ContentManager content)
         {
             base.LoadContent(content);
             pid.LoadContent(content, GameScreen.MainPlayer);
             pL.LoadContent(content);
+            im.LoadContent(content);
 
         }
 
@@ -32,6 +37,8 @@ namespace DungeonGame.ScreenManagement.Overlays
             base.Update(gameTime);
             pid.Update(gameTime, GameScreen.MainPlayer);
             pL.Update(gameTime, GameScreen.MainPlayer);
+            im.Update(gameTime, GameScreen.MainPlayer);
+
         }
 
         public override void Draw(SpriteBatch _spriteBatch)
@@ -39,9 +46,11 @@ namespace DungeonGame.ScreenManagement.Overlays
             base.Draw(_spriteBatch);
             pid.Draw(_spriteBatch);
             pL.Draw(_spriteBatch);
+            im.Draw(_spriteBatch);
+
         }
 
 
-        
+
     }
 }

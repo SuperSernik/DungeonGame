@@ -277,7 +277,6 @@ C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursewor
 C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Recources\Maps\mapThree.txt
 C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Recources\Maps\mapTwo.txt
 C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Recources\Maps\TESTMAP.txt
-C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Recources\Maps\TextureDATA.txt
 C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Recources\SavedData\GameScreenData.txt
 C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Recources\SavedData\TestData.txt
 C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\DungeonGame.deps.json
@@ -309,3 +308,5 @@ C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursewor
 C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Content\DevAidTextures\whiteBox1px.xnb
 C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Content\Cursors\Cursor.xnb
 C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Content\PlayerTextures\redRectTextureAtlas.xnb
+C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Recources\SavedData\TextureDATA.txt
+C:\Users\Admin\Desktop\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Content\Weapons\weaponsAtlas.xnb

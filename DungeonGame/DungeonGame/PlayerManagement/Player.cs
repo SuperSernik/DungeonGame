@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using DungeonGame.BackendDev;
 using DungeonGame.ScreenManagement.Screens;
+using System.Reflection.Metadata;
 
 namespace DungeonGame.PlayerManagement
 {
@@ -59,7 +60,6 @@ namespace DungeonGame.PlayerManagement
         Texture2D whitePixel;
 
         // LINE
-        //Line l = new Line();
 
         public Player()
         {
@@ -210,6 +210,8 @@ namespace DungeonGame.PlayerManagement
             playerLEFT = new Rectangle(playerRect.X + 2, playerRect.Y + 26, 1, 14);       //    for the players collision system.
             playerRIGHT = new Rectangle(playerRect.X + 30, playerRect.Y + 26, 1, 14);
 
+
+
         }
 
         void DrawPlayerHitBox(Rectangle playerTOP, Rectangle playerBOTTOM, Rectangle playerLEFT, Rectangle playerRIGHT)
@@ -288,9 +290,11 @@ namespace DungeonGame.PlayerManagement
                 _spriteBatch.Draw(whitePixel, playerLEFT, leftCOLOR); // LEFT
                 _spriteBatch.Draw(whitePixel, playerRIGHT, rightCOLOR); // RIGHT
 
+
+
             }
 
-            
+
 
 
         }

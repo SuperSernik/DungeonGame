@@ -49,7 +49,7 @@
     <None Update="Recources\Maps\TESTMAP.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Recources\Maps\TextureDATA.txt">
+    <None Update="Recources\SavedData\TextureDATA.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Recources\SavedData\GameScreenData.txt">

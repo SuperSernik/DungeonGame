@@ -37,6 +37,7 @@ namespace DungeonGame.BackendDev
             lineColor = Color.White;
 
         }
+
         public Line(Vector2 newFrom, Vector2 newTo)
         {
             if(newFrom != Vector2.Zero)
@@ -78,8 +79,7 @@ namespace DungeonGame.BackendDev
             //line = new Texture2D(gdm.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
             //line.SetData(new[] { Color.White });
 
-
-
+            
             line = content.Load<Texture2D>("Fx/BlackPixel");
             angleOfLine = (float)(2 * Math.PI);
 
@@ -87,7 +87,7 @@ namespace DungeonGame.BackendDev
 
         }
 
-        public void Update(GameTime gameTime, Player p) // PLAYER TO MOUSE
+        public void Update(GameTime gameTime, Player p) // POINT TO MOUSE
         {
             MouseState mouse = Mouse.GetState();
             distance.X = mouse.X - linePos.X;
@@ -97,9 +97,7 @@ namespace DungeonGame.BackendDev
 
             linePos.X = (int)from.X;
             linePos.Y = (int)from.Y;
-
-
-
+            
             lineLength = Math.Sqrt((distance.X * distance.X) + (distance.Y * distance.Y));
 
         }

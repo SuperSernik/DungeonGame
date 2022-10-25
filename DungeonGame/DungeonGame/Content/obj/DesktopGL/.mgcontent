@@ -41,8 +41,10 @@
     <File>C:/Users/Admin/Desktop/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/SplashScreens/DamoDevRed.png</File>
     <File>C:/Users/Admin/Desktop/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/TileMaps/chestsTileMap.png</File>
     <File>C:/Users/Admin/Desktop/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/TileMaps/TileMapBack.png</File>
+    <File>C:/Users/Admin/Desktop/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/Weapons/weaponsAtlas.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
