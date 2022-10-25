@@ -1,4 +1,5 @@
 ﻿using DungeonGame.InventoryManagement;
+using DungeonGame.ItemManagement.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -53,7 +54,9 @@ namespace DungeonGame.BackendDev
         {
             //_spriteBatch.Draw(texture, position, sourceRect, Color.White);
             //_spriteBatch.DrawString(spriteFont, Convert.ToString(prev), position, colorr);
-            _spriteBatch.DrawString(spriteFont, Convert.ToString(InventoryManager.inv.selectorPosRect.X), position, colorr);
+            //_spriteBatch.DrawString(spriteFont, Convert.ToString(InventoryManager.inv.selectorPosRect.X), position, colorr);
+            _spriteBatch.DrawString(spriteFont, Convert.ToString(ItemManager.pp.angleOfLine), position, colorr);
+
         }
 
     }

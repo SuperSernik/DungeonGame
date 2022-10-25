@@ -201,3 +201,4 @@ E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Releas
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\obj\Release\net6.0\DungeonGame.pdb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\obj\Release\net6.0\DungeonGame.genruntimeconfig.cache
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\obj\Release\net6.0\ref\DungeonGame.dll
+E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Release\net6.0\Content\Items\foodsAtlas.xnb

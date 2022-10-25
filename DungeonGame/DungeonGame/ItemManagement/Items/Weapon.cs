@@ -13,11 +13,11 @@ namespace DungeonGame.ItemManagement.Items
 {
     public class Weapon : Item
     {
-
+        
         Vector2 position;
         Texture2D textureAtlas;
 
-        float angleOfLine;
+        public float angleOfLine;
         Vector2 distance;
 
         Vector2 weaponDisplaySize;
@@ -34,7 +34,7 @@ namespace DungeonGame.ItemManagement.Items
         public override void LoadContent(ContentManager content)
         {
             textureAtlas = content.Load<Texture2D>("Weapons/weaponsAtlas");
-            setWeaponData(this.itemName);
+            setWeaponData(this.itemName, 32, 32);
         }
 
         public Rectangle SourceRect
@@ -60,13 +60,21 @@ namespace DungeonGame.ItemManagement.Items
         }
         public override void Draw(SpriteBatch _spriteBatch)
         {
+            if(angleOfLine <= Math.PI/2 && angleOfLine >= -Math.PI / 2)
+            {
+                _spriteBatch.Draw(textureAtlas, new Rectangle((int)position.X, (int)position.Y, (int)weaponDisplaySize.X, (int)weaponDisplaySize.Y), sourceRect, Color.White, angleOfLine, new Vector2(0, weaponSize.Y / 2), SpriteEffects.None, 1);
 
-            _spriteBatch.Draw(textureAtlas, new Rectangle((int)position.X, (int)position.Y, (int)weaponDisplaySize.X, (int)weaponDisplaySize.Y), sourceRect, Color.White, angleOfLine, new Vector2(0, weaponSize.Y / 2), SpriteEffects.None, 1);
+            }
+            else
+            {
+                _spriteBatch.Draw(textureAtlas, new Rectangle((int)position.X, (int)position.Y, (int)weaponDisplaySize.X, (int)weaponDisplaySize.Y), sourceRect, Color.White, angleOfLine, new Vector2(0, weaponSize.Y / 2), SpriteEffects.FlipVertically, 1);
+
+            }
             //_spriteBatch.Draw(textureAtlas, position, Color.White);
 
         }
 
-        void setWeaponData(string weapon)
+        void setWeaponData(string weapon,int itemWidthInGame, int itemHeightInGame)
         {
             switch (weapon)
             {

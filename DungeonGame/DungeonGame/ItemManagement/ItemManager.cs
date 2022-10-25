@@ -21,6 +21,11 @@ namespace DungeonGame.ItemManagement.Items
         public static Weapon bazooka = new Weapon("weapon", "bazooka");
         public static Weapon pp = new Weapon("weapon", "pp");
 
+        public static Food cake = new Food("food", "cake");
+        public static Food vodka = new Food("food", "vodka");
+        public static Food banana = new Food("food", "banana");
+
+
 
 
 
@@ -30,24 +35,28 @@ namespace DungeonGame.ItemManagement.Items
             nyanLauncher.LoadContent(content);
             bazooka.LoadContent(content);
             pp.LoadContent(content);
+
+            cake.LoadContent(content);
+            vodka.LoadContent(content);
+            banana.LoadContent(content);
         }
 
         public void Update(GameTime gameTime, Player p)
         {
             pistol.Update(gameTime, p.playerPositionORIGIN);
-            nyanLauncher.Update(gameTime, p.playerPositionORIGIN);  
+            nyanLauncher.Update(gameTime, p.playerPositionORIGIN);
             bazooka.Update(gameTime, p.playerPositionORIGIN);
             pp.Update(gameTime, p.playerPositionORIGIN);
+
+            cake.Update(gameTime, p.playerPositionORIGIN);
+            vodka.Update(gameTime, p.playerPositionORIGIN);
+            banana.Update(gameTime, p.playerPositionORIGIN);
         }
 
         public void Draw(SpriteBatch _spriteBatch)
         {
             //pistol.Draw(_spriteBatch);
-            if(GameScreen.MainPlayer.CurrentWeapon != null)
-            {
-                GameScreen.MainPlayer.CurrentWeapon.Draw(_spriteBatch);
-
-            }
+            GameScreen.MainPlayer.CurrentItemHeld.Draw(_spriteBatch);
 
         }
 

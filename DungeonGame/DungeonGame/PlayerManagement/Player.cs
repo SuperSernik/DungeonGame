@@ -53,9 +53,10 @@ namespace DungeonGame.PlayerManagement
         byte prevAnimationIndex;
         byte currAnimationIndex;
 
-        //WEAPONS
+        //ITEMS
         public string CurrentWeaponType = "pistol";
-        public Weapon CurrentWeapon = ItemManager.pistol;
+
+        public Item CurrentItemHeld = ItemManager.pistol;
 
 
         // MAP

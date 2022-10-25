@@ -31,6 +31,7 @@ E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Releas
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/Fx\RedPixel.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/Fx\WhitePixel.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/Fx\YellowPixel.xnb
+E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/Items\foodsAtlas.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/MenuScreens\MenuItems\buttonTextureAtlas.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/MenuScreens\VineBack.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/MiscImages\Jake320x480.xnb

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/Weapons/weaponsAtlas.png</SourceFile>
-  <SourceTime>2022-10-25T02:38:27.0327963+01:00</SourceTime>
+  <SourceTime>2022-10-25T21:37:01.0920127+01:00</SourceTime>
   <DestFile>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/bin/DesktopGL/Weapons/weaponsAtlas.xnb</DestFile>
-  <DestTime>2022-10-25T19:24:30.0871152+01:00</DestTime>
+  <DestTime>2022-10-25T22:55:30.5700998+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T17:17:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

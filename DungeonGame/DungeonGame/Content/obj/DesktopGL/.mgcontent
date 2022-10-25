@@ -27,6 +27,7 @@
     <File>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/Fx/RedPixel.png</File>
     <File>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/Fx/WhitePixel.png</File>
     <File>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/Fx/YellowPixel.png</File>
+    <File>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/Items/foodsAtlas.png</File>
     <File>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/MenuScreens/MenuItems/buttonTextureAtlas.png</File>
     <File>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/MenuScreens/VineBack.PNG</File>
     <File>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/MiscImages/Jake320x480.png</File>
@@ -45,6 +46,7 @@
     <File>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/Weapons/weaponsAtlas.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

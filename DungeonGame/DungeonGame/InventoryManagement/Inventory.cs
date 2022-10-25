@@ -17,8 +17,8 @@ namespace DungeonGame.InventoryManagement
 {
     class Inventory
     {
-        // WEAPON DATA
-        Texture2D weaponsAtlas;
+        // ITEM DATA
+        Texture2D weaponsAtlas, foodsAtlas;
 
         // INV DATA
         Item[,] itemsInInv = new Item[4, 2];
@@ -36,6 +36,7 @@ namespace DungeonGame.InventoryManagement
         float sf;
         Rectangle textureVisableSize;
         Rectangle sourceRect;
+        Texture2D atlasThatContainItemsToDraw;
 
         // INV MOVING SELECTOR
         Rectangle selectorSourceRect;
@@ -44,9 +45,9 @@ namespace DungeonGame.InventoryManagement
 
         public void LoadContent(ContentManager Content)
         {
-            //Weapons
+            //Items
             weaponsAtlas = Content.Load<Texture2D>("Weapons/weaponsAtlas");
-
+            foodsAtlas = Content.Load<Texture2D>("Items/foodsAtlas");
             // INV
             UIAtlas = Content.Load<Texture2D>("UserInterface/InventoryUI");
 
@@ -76,12 +77,11 @@ namespace DungeonGame.InventoryManagement
 
             itemsInHotBar = new Item[4];
 
+
             itemsInHotBar[0] = ItemManager.pistol;
             itemsInHotBar[1] = ItemManager.nyanLauncher;
             itemsInHotBar[2] = ItemManager.bazooka;
             itemsInHotBar[3] = ItemManager.pp;
-
-
 
 
         }
@@ -98,7 +98,7 @@ namespace DungeonGame.InventoryManagement
 
         public void switchPlayerItem()
         {
-            GameScreen.MainPlayer.CurrentWeapon = (Weapon)itemsInHotBar[currentSlot];
+            GameScreen.MainPlayer.CurrentItemHeld = itemsInHotBar[currentSlot];
         }
 
         public void Draw(SpriteBatch _spriteBatch)
@@ -110,9 +110,19 @@ namespace DungeonGame.InventoryManagement
 
                 if(itemsInHotBar != null)
                 {
-                    _spriteBatch.Draw(weaponsAtlas, hotbarSlots[i], itemsInHotBar[i].sourceRect, Color.White);
+                    if (itemsInHotBar[i].itemType == "weapon")
+                    {
+                        atlasThatContainItemsToDraw = weaponsAtlas;
+                    }
+                    if (itemsInHotBar[i].itemType == "food")
+                    {
+                        atlasThatContainItemsToDraw = foodsAtlas;
+                    }
+                    _spriteBatch.Draw(atlasThatContainItemsToDraw, hotbarSlots[i], itemsInHotBar[i].sourceRect, Color.White);
 
                 }
+
+
 
                 if (GameScreen.developerView)
                 {

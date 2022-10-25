@@ -12,7 +12,7 @@ namespace DungeonGame.InventoryManagement
     class InventoryManager
     {
         public static Inventory inv = new Inventory();
-
+        
         public void LoadContent(ContentManager Content)
         {
             inv.LoadContent(Content);
