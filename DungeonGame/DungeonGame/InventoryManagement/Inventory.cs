@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DungeonGame.ItemManagement.Items;
+using DungeonGame.ScreenManagement.Screens;
+using DungeonGame.ScreenManagement.Overlays;
 
 namespace DungeonGame.InventoryManagement
 {
@@ -19,10 +21,13 @@ namespace DungeonGame.InventoryManagement
         Texture2D weaponsAtlas;
 
         // INV DATA
-        Item[,] itemsInInv = new Item[4, 3];
+        Item[,] itemsInInv = new Item[4, 2];
 
         // HOT BAR DATA
         Rectangle[] hotbarSlots;
+        Item[] itemsInHotBar;
+
+        public int currentSlot;
 
         // DRAWING THE INV
         Texture2D UIAtlas;
@@ -55,6 +60,7 @@ namespace DungeonGame.InventoryManagement
 
             selectorSourceRect = new Rectangle(224, 64, 64, 64);                    // IN TEXTURE
             selectorPosRect = new Rectangle(invLayout.X, invLayout.Y, (int)(64 * sf), (int)(64 * sf));      // IN GAME
+            currentSlot = 0;
 
 
             hotbarSlots = new Rectangle[4];
@@ -68,16 +74,32 @@ namespace DungeonGame.InventoryManagement
 
             }
 
+            itemsInHotBar = new Item[4];
+
+            itemsInHotBar[0] = ItemManager.pistol;
+            itemsInHotBar[1] = ItemManager.nyanLauncher;
+            itemsInHotBar[2] = ItemManager.bazooka;
+            itemsInHotBar[3] = ItemManager.pp;
+
+
+
 
         }
 
         public void Update(GameTime gameTime)
         {
             ScrollThroughHotbar();
+            switchPlayerItem();
+
 
 
         }
 
+
+        public void switchPlayerItem()
+        {
+            GameScreen.MainPlayer.CurrentWeapon = (Weapon)itemsInHotBar[currentSlot];
+        }
 
         public void Draw(SpriteBatch _spriteBatch)
         {
@@ -85,9 +107,27 @@ namespace DungeonGame.InventoryManagement
 
             for (int i = 0; i < 4; i++)
             {
-                _spriteBatch.Draw(DevTexturesManger.Instance.whiteBox1px, hotbarSlots[i], Color.Red);
-                _spriteBatch.Draw(weaponsAtlas, hotbarSlots[i], ItemManager.gun.sourceRect, Color.White);
+
+                if(itemsInHotBar != null)
+                {
+                    _spriteBatch.Draw(weaponsAtlas, hotbarSlots[i], itemsInHotBar[i].sourceRect, Color.White);
+
+                }
+
+                if (GameScreen.developerView)
+                {
+                    _spriteBatch.Draw(DevTexturesManger.Instance.whiteBox1px, hotbarSlots[i], Color.Red);
+
+                }
+
             }
+
+
+
+
+
+
+
 
             _spriteBatch.Draw(UIAtlas, selectorPosRect, selectorSourceRect, Color.White);
 
@@ -105,6 +145,7 @@ namespace DungeonGame.InventoryManagement
                 if (selectorPosRect.X > invLayout.X)
                 {
                     selectorPosRect.X -= 70;
+                    currentSlot--;
                 }
 
             }
@@ -113,10 +154,23 @@ namespace DungeonGame.InventoryManagement
                 if (selectorPosRect.X < invLayout.X + 70 * 3)
                 {
                     selectorPosRect.X += 70;
+                    currentSlot++;
 
                 }
             }
             prevScrollValue = mouse.ScrollWheelValue;
+        }
+
+        void quickWeaponSwitch()
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.L))
+            {
+                //GameScreen.MainPlayer.CurrentWeapon = ItemManager.pistol;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.P))
+            {
+                //GameScreen.MainPlayer.CurrentWeapon = ItemManager.nyanLauncher;
+            }
         }
     }
 }

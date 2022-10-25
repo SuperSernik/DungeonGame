@@ -20,8 +20,8 @@ namespace DungeonGame.ScreenManagement.Overlays
     {
 
         PlayerInfoDisplay pid = new PlayerInfoDisplay();
-        ItemManager im = new ItemManager();
-        InventoryManager invM = new InventoryManager();
+        public static ItemManager im = new ItemManager();
+        public InventoryManager invM = new InventoryManager();
 
         Line pL = new Line(new Vector2(ScreenManager.Instance.Resolution.X / 2, (ScreenManager.Instance.Resolution.Y / 2) + 15), Vector2.Zero, GameScreen.developerView, Color.Turquoise);
 

@@ -11,6 +11,9 @@ using Microsoft.Xna.Framework.Input;
 using DungeonGame.BackendDev;
 using DungeonGame.ScreenManagement.Screens;
 using System.Reflection.Metadata;
+using DungeonGame.ItemManagement.Items;
+using DungeonGame.InventoryManagement;
+using DungeonGame.ScreenManagement.Overlays;
 
 namespace DungeonGame.PlayerManagement
 {
@@ -50,6 +53,9 @@ namespace DungeonGame.PlayerManagement
         byte prevAnimationIndex;
         byte currAnimationIndex;
 
+        //WEAPONS
+        public string CurrentWeaponType = "pistol";
+        public Weapon CurrentWeapon = ItemManager.pistol;
 
 
         // MAP
@@ -59,7 +65,6 @@ namespace DungeonGame.PlayerManagement
         Texture2D redNode;
         Texture2D whitePixel;
 
-        // LINE
 
         public Player()
         {

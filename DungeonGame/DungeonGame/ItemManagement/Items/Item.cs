@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 
 namespace DungeonGame.ItemManagement.Items
 {
-    class Item
+    public class Item
     {
         /// <summary>
         /// Items#  weapons, food, potions, ammunuition
         /// 
         /// </summary>
 
-        private string itemType, itemName;
+        public string itemType, itemName;
+        public Rectangle sourceRect;
 
         public Item(string newItemType, string newItemName)
         {
