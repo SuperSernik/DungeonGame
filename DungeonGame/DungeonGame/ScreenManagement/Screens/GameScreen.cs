@@ -30,6 +30,8 @@ namespace DungeonGame.ScreenManagement.Screens
         NPCManager nm = new NPCManager();
         Camera _camera;
 
+        // TESTING
+        DrawCheck dc = new DrawCheck();
 
         public GameScreen()
         {
@@ -48,6 +50,8 @@ namespace DungeonGame.ScreenManagement.Screens
             nm.LoadContent(Content);
 
             MainPlayer.LoadContent(Content);
+
+            dc.LoadContent(Content);
 
         }
 
@@ -87,6 +91,7 @@ namespace DungeonGame.ScreenManagement.Screens
             em.Draw(_spriteBatch);
             nm.Draw(_spriteBatch);
 
+            dc.Draw(_spriteBatch);
 
             MainPlayer.Draw(_spriteBatch);
             _spriteBatch.End();

@@ -20,7 +20,7 @@ namespace DungeonGame.ScreenManagement.Overlays
         PlayerInfoDisplay pid = new PlayerInfoDisplay();
         ItemManager im = new ItemManager();
 
-        Line pL = new Line(new Vector2(ScreenManager.Instance.Resolution.X / 2, (ScreenManager.Instance.Resolution.Y / 2) + 10), Vector2.Zero, GameScreen.developerView, Color.Turquoise);
+        Line pL = new Line(new Vector2(ScreenManager.Instance.Resolution.X / 2, (ScreenManager.Instance.Resolution.Y / 2) + 15), Vector2.Zero, GameScreen.developerView, Color.Turquoise);
 
 
         public override void LoadContent(ContentManager content)

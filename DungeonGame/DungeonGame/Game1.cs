@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using DungeonGame.MapManagement;
 using DungeonGame.PlayerManagement;
+using DungeonGame.BackendDev;
 
 namespace DungeonGame
 {
@@ -12,6 +13,7 @@ namespace DungeonGame
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+
 
         public static string currentGAMESCREEN;
         
@@ -49,6 +51,7 @@ namespace DungeonGame
             OverlayManager.Instance.LoadContent(Content);
             OverlayManager.Instance._spriteBatch = _spriteBatch;
 
+
         }
         protected override void UnloadContent()
         {
@@ -77,7 +80,6 @@ namespace DungeonGame
 
             ScreenManager.Instance.Draw(_spriteBatch);
             OverlayManager.Instance.Draw(_spriteBatch);
-
 
 
             base.Draw(gameTime);

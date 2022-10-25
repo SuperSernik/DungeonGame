@@ -19,8 +19,11 @@ namespace DungeonGame_v2.ItemManagement.Items
         float angleOfLine;
         Vector2 distance;
 
-        Vector2 weaponDisplaySize = new Vector2(256, 256);
-        Vector2 weaponSize = new Vector2(32, 32);
+        //Vector2 weaponDisplaySize = new Vector2(96, 32);    // IN GAME
+        //Vector2 weaponSize = new Vector2(208, 64);           // ON TILEMAP
+
+        Vector2 weaponDisplaySize = new Vector2(32, 32);    // IN GAME
+        Vector2 weaponSize = new Vector2(32, 32);           // ON TILEMAP
 
 
         public Weapon(string newItemType, string newItemName, int newItemAmmount) : base(newItemType, newItemName)
@@ -30,14 +33,14 @@ namespace DungeonGame_v2.ItemManagement.Items
         public override void LoadContent(ContentManager content)
         {
             textureAtlas = content.Load<Texture2D>("Weapons/weaponsAtlas");
-            sourceRect = new Rectangle(0, 0, (int)weaponSize.X, (int)weaponSize.Y); // penis
+            sourceRect = new Rectangle(144, 0, (int)weaponSize.X, (int)weaponSize.Y); // penis
 
         }
 
 
         public override void Update(GameTime gameTime, Vector2 pos)
         {
-            position = new Vector2(ScreenManager.Instance.Resolution.X / 2, (ScreenManager.Instance.Resolution.Y / 2)  + 10); // the 10 is displacement from the center of the screen
+            position = new Vector2(ScreenManager.Instance.Resolution.X / 2, (ScreenManager.Instance.Resolution.Y / 2)  + 15); // the 10 is displacement from the center of the screen
 
             MouseState mouse = Mouse.GetState();
             distance.X = mouse.X - position.X;
