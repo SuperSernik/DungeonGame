@@ -1,20 +1,22 @@
 ﻿using DungeonGame.ScreenManagement;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace DungeonGame_v2.ItemManagement.Items
+namespace DungeonGame.ItemManagement.Items
 {
     class Weapon : Item
     {
 
         Vector2 position;
         Texture2D textureAtlas;
-        Rectangle sourceRect;
+        public Rectangle sourceRect;
 
         float angleOfLine;
         Vector2 distance;
@@ -37,10 +39,15 @@ namespace DungeonGame_v2.ItemManagement.Items
 
         }
 
+        public Rectangle SourceRect
+        {
+            get { return sourceRect; }
+        }
+
 
         public override void Update(GameTime gameTime, Vector2 pos)
         {
-            position = new Vector2(ScreenManager.Instance.Resolution.X / 2, (ScreenManager.Instance.Resolution.Y / 2)  + 15); // the 10 is displacement from the center of the screen
+            position = new Vector2(ScreenManager.Instance.Resolution.X / 2, ScreenManager.Instance.Resolution.Y / 2 + 15); // the 10 is displacement from the center of the screen
 
             MouseState mouse = Mouse.GetState();
             distance.X = mouse.X - position.X;
@@ -56,10 +63,9 @@ namespace DungeonGame_v2.ItemManagement.Items
         public override void Draw(SpriteBatch _spriteBatch)
         {
 
-            _spriteBatch.Draw(textureAtlas, new Rectangle((int)position.X, (int)position.Y, (int)weaponDisplaySize.X, (int)weaponDisplaySize.Y), sourceRect, Color.White, angleOfLine, new Vector2(0, weaponSize.Y/2), SpriteEffects.None, 1);
+            _spriteBatch.Draw(textureAtlas, new Rectangle((int)position.X, (int)position.Y, (int)weaponDisplaySize.X, (int)weaponDisplaySize.Y), sourceRect, Color.White, angleOfLine, new Vector2(0, weaponSize.Y / 2), SpriteEffects.None, 1);
             //_spriteBatch.Draw(textureAtlas, position, Color.White);
 
         }
-
     }
 }

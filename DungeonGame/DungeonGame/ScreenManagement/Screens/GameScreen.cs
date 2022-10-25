@@ -75,7 +75,7 @@ namespace DungeonGame.ScreenManagement.Screens
             {
                 switchToScreen = "menu";
             }
-
+            dc.Update(gameTime);
 
             
         }

@@ -11,7 +11,7 @@ namespace DungeonGame.InventoryManagement
 {
     class InventoryManager
     {
-        Inventory inv = new Inventory();
+        public static Inventory inv = new Inventory();
 
         public void LoadContent(ContentManager Content)
         {
