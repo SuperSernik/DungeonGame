@@ -1,4 +1,5 @@
 ﻿using DungeonGame.BackendDev;
+using DungeonGame.InventoryManagement;
 using DungeonGame.PlayerManagement;
 using DungeonGame.ScreenManagement.Screens;
 using DungeonGame.ScreenManagement.ScreenStats;
@@ -19,6 +20,7 @@ namespace DungeonGame.ScreenManagement.Overlays
 
         PlayerInfoDisplay pid = new PlayerInfoDisplay();
         ItemManager im = new ItemManager();
+        InventoryManager invM = new InventoryManager();
 
         Line pL = new Line(new Vector2(ScreenManager.Instance.Resolution.X / 2, (ScreenManager.Instance.Resolution.Y / 2) + 15), Vector2.Zero, GameScreen.developerView, Color.Turquoise);
 
@@ -29,6 +31,7 @@ namespace DungeonGame.ScreenManagement.Overlays
             pid.LoadContent(content, GameScreen.MainPlayer);
             pL.LoadContent(content);
             im.LoadContent(content);
+            invM.LoadContent(content);
 
         }
 
@@ -38,7 +41,7 @@ namespace DungeonGame.ScreenManagement.Overlays
             pid.Update(gameTime, GameScreen.MainPlayer);
             pL.Update(gameTime, GameScreen.MainPlayer);
             im.Update(gameTime, GameScreen.MainPlayer);
-
+            invM.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch _spriteBatch)
@@ -47,6 +50,7 @@ namespace DungeonGame.ScreenManagement.Overlays
             pid.Draw(_spriteBatch);
             pL.Draw(_spriteBatch);
             im.Draw(_spriteBatch);
+            invM.Draw(_spriteBatch);
 
         }
 
