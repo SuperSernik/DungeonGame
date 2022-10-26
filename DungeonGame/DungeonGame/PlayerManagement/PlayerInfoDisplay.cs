@@ -74,49 +74,46 @@ namespace DungeonGame.PlayerManagement
 
         public void Draw(SpriteBatch _spriteBatch)
         {
-            // Draws shaded effect under the text so its more visable
             _spriteBatch.Draw(blkPxl, blkPxlRect, new Color(Color.Black, 0.6f));
-            // Draws the coin icon
             _spriteBatch.Draw(coinTexture, coinRect, Color.White);
-            // Writes the ammount of coins the player has
             _spriteBatch.DrawString(EngOldFont18, HEREplayerCoins, textPos, Color.White);
 
-
-            // Draws a background for the hearts so that the player knows how many hearts
-            //   they are missing.
             for (int i = 0; i < hearts.Length; i++)
             {
                 _spriteBatch.Draw(justRedHearts, hearts[i], new Rectangle(0, 0, 32, 32), new Color(Color.LightSeaGreen, 0.6f));
             }
-            if (true)
+
+
+
+            ammOFHearts = HEREplayerHealth / 2;
+
+            for (int i = 0; i < ammOFHearts; i++)
             {
-
-                // MOD divison of the players health as this will show the
-                //  number of full hearts the program has to draw
-                ammOFHearts = HEREplayerHealth / 2;
-
-                // Then the program draws the ammount of full hearts
-                for (int i = 0; i < ammOFHearts; i++)
-                {
-                    _spriteBatch.Draw(heartTextureAtlas, hearts[i], new Rectangle(0, 0, 32, 32), Color.White);
-
-                }// Finally remainder division leaves a remainder that means the program still has to draw
-                 // half a heart
-                if ((HEREplayerHealth / (float)2) != 0 && HEREplayerHealth != 10)
-                {// then it draws after the last full heart drawn
-                    _spriteBatch.Draw(heartTextureAtlas, hearts[ammOFHearts], new Rectangle(32, 0, 32, 32), Color.White);
-                }
-            }
-            else
-            {
-                for (int i = 0; i < hearts.Length; i++)
-                {
-                    _spriteBatch.Draw(justRedHearts, hearts[i], new Rectangle(0, 0, 32, 32), Color.Gold);
-                }
+                _spriteBatch.Draw(heartTextureAtlas, hearts[i], new Rectangle(0, 0, 32, 32), Color.White);
 
             }
-
-
+            
+            
+            if (HEREplayerHealth == 1)
+            {
+                _spriteBatch.Draw(heartTextureAtlas, hearts[0], new Rectangle(32, 0, 32, 32), Color.White);
+            }
+            else if (HEREplayerHealth == 3)
+            {
+                _spriteBatch.Draw(heartTextureAtlas, hearts[1], new Rectangle(32, 0, 32, 32), Color.White);
+            }
+            else if(HEREplayerHealth == 5)
+            {
+                _spriteBatch.Draw(heartTextureAtlas, hearts[2], new Rectangle(32, 0, 32, 32), Color.White);
+            }
+            else if(HEREplayerHealth == 7)
+            {
+                _spriteBatch.Draw(heartTextureAtlas, hearts[3], new Rectangle(32, 0, 32, 32), Color.White);
+            }
+            else if (HEREplayerHealth == 9)
+            {
+                _spriteBatch.Draw(heartTextureAtlas, hearts[4], new Rectangle(32, 0, 32, 32), Color.White);
+            }
 
 
 

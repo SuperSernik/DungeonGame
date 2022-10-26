@@ -25,7 +25,7 @@ namespace DungeonGame.InventoryManagement
 
         // HOT BAR DATA
         Rectangle[] hotbarSlots;
-        Item[] itemsInHotBar;
+        public static Item[] itemsInHotBar;
 
         public int currentSlot;
 
@@ -81,7 +81,7 @@ namespace DungeonGame.InventoryManagement
             itemsInHotBar[0] = ItemManager.pistol;
             itemsInHotBar[1] = ItemManager.nyanLauncher;
             itemsInHotBar[2] = ItemManager.bazooka;
-            itemsInHotBar[3] = ItemManager.pp;
+            itemsInHotBar[3] = ItemManager.cake;
 
 
         }
@@ -91,6 +91,10 @@ namespace DungeonGame.InventoryManagement
             ScrollThroughHotbar();
             switchPlayerItem();
 
+            if (Keyboard.GetState().IsKeyDown(Globals.dropItemKey))
+            {
+                itemsInHotBar[currentSlot] = null;
+            }
 
 
         }
@@ -108,7 +112,7 @@ namespace DungeonGame.InventoryManagement
             for (int i = 0; i < 4; i++)
             {
 
-                if(itemsInHotBar != null)
+                if (itemsInHotBar[i] != null)
                 {
                     if (itemsInHotBar[i].itemType == "weapon")
                     {

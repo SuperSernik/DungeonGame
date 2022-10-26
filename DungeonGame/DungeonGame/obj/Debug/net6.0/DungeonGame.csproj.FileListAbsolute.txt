@@ -384,3 +384,4 @@ E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Releas
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\obj\Debug\net6.0\ref\DungeonGame.dll
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Content\UserInterface\InventoryUI.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Content\Items\foodsAtlas.xnb
+E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGame\DungeonGame\DungeonGame\bin\Debug\net6.0\Content\UserInterface\controls.xnb

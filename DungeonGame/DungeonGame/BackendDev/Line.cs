@@ -14,7 +14,7 @@ namespace DungeonGame.BackendDev
 {
     class Line
     {
-        bool visable = true;
+        bool visable;
 
         Texture2D line;
         float angleOfLine;
@@ -30,10 +30,7 @@ namespace DungeonGame.BackendDev
         {
             from = Vector2.Zero;
             to = Vector2.Zero;
-            if (!GameScreen.developerView)
-            {
-                visable = false;
-            }
+            visable = GameScreen.developerView;
             lineColor = Color.White;
 
         }
@@ -50,10 +47,7 @@ namespace DungeonGame.BackendDev
                 to = newTo;
 
             }
-            if (!GameScreen.developerView)
-            {
-                visable = false;
-            }
+            visable = GameScreen.developerView;
             lineColor = Color.White;
         }
         public Line(Vector2 newFrom, Vector2 newTo, bool newVISABLE, Color newLineColor)
@@ -100,6 +94,7 @@ namespace DungeonGame.BackendDev
             
             lineLength = Math.Sqrt((distance.X * distance.X) + (distance.Y * distance.Y));
 
+
         }
         public void Update(GameTime gameTime, Vector2 Ufrom, Vector2 Uto) // DYNAMIC FROM TO
         {
@@ -116,6 +111,8 @@ namespace DungeonGame.BackendDev
 
             lineLength = Math.Sqrt((distance.X * distance.X) + (distance.Y * distance.Y));
 
+
+
         }
         public void Update(GameTime gameTime) // STATIC FROM TO 
         {
@@ -129,15 +126,18 @@ namespace DungeonGame.BackendDev
 
             lineLength = Math.Sqrt((distance.X * distance.X) + (distance.Y * distance.Y));
 
+
         }
 
         public void Draw(SpriteBatch _spriteBatch)
         {
-            if (visable)
+            if (GameScreen.developerView)
             {
                 _spriteBatch.Draw(line, new Rectangle((int)linePos.X, (int)linePos.Y, (int)lineLength, 1), null, lineColor, angleOfLine, new Vector2(0, 0), SpriteEffects.None, 0);
 
             }
+
+            
 
 
         }

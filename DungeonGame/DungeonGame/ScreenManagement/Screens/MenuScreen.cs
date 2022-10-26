@@ -51,11 +51,13 @@ namespace DungeonGame.ScreenManagement.Screens
 
             playButton = new ScreenButton(new Vector2(800, 300), "Play Game", "play", "boxOne");
             btns.Add(playButton);
-            quitButton = new ScreenButton(new Vector2(800, 500), "Quit", "quit", "boxOne");
+            quitButton = new ScreenButton(new Vector2(800, 600), "Quit", "quit", "boxOne");
             btns.Add(quitButton);
             settingsButton = new ScreenButton(new Vector2(800, 400), "Settings", "settings", "boxOne");
             btns.Add(settingsButton);
-            foreach(ScreenButton button in btns) { button.LoadContent(Content); }
+            settingsButton = new ScreenButton(new Vector2(800, 500), "Controls", "controls", "boxOne");
+            btns.Add(settingsButton);
+            foreach (ScreenButton button in btns) { button.LoadContent(Content); }
 
             switchToScreen = null;
             
@@ -87,7 +89,11 @@ namespace DungeonGame.ScreenManagement.Screens
                 {
                     g.Exit();
                 }
-                
+                if (button.buttonType == "controls" && button.btnPressed == true)
+                {
+                    switchToScreen = "controlsDisplay";
+                }
+
 
             }
 

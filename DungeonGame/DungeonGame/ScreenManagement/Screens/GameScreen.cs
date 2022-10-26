@@ -77,7 +77,39 @@ namespace DungeonGame.ScreenManagement.Screens
             }
             dc.Update(gameTime);
 
+            toggleDevMode();
+
+        }
+
+
+        // INCLUDE WHEN MOVING DIS
+        bool beingPressed = false;
+        void toggleDevMode()
+        {
             
+
+            if (Keyboard.GetState().IsKeyDown(Globals.developerModeKey) && beingPressed == false)
+            {
+                beingPressed = true;
+                if(developerView == false)
+                {
+                    developerView = true;
+                }
+                else if (developerView == true)
+                {
+                    developerView = false;
+
+                }
+            }
+
+            if (Keyboard.GetState().IsKeyUp(Globals.developerModeKey))
+            {
+                beingPressed = false;
+            }
+
+
+
+
         }
 
         public override void Draw(SpriteBatch _spriteBatch)

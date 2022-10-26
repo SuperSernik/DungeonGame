@@ -17,25 +17,27 @@ namespace DungeonGame.ScreenManagement
 
     class ScreenManager
     {
+        //SINGLETON CLASS STUFF
         private static ScreenManager instance;
         public ContentManager Content { private set; get; }
         public SpriteBatch _spriteBatch;
-
         public UserScreen currentScreen;
 
-
+        // BACKGROUND STUUF
         public static char[,] visibleMAP;
         public static char[,] visibleLAYER;
 
+        // SCREENS
         public UserScreen splashScreen;
         public UserScreen mainMenuScreen;
         public UserScreen gameScreen;
         public UserScreen mainSettingsScreen;
+        public UserScreen controlsDisplayScreen;
 
         public bool IsFULL_SCREEN;
         public bool IsMOUSE_VISABLE;
 
-        bool prevFullscreenState, fullScreen;
+        bool fullScreen;
 
         public UserScreen CurrentScreen
         {
@@ -69,8 +71,7 @@ namespace DungeonGame.ScreenManagement
 
         public ScreenManager()
         {
-            SetResAndScreenSize(false);
-
+            SetResAndScreenSize();
 
             setMap();
             //MapDimentions = new Vector2(100, 100);
@@ -81,6 +82,7 @@ namespace DungeonGame.ScreenManagement
             mainMenuScreen = new MenuScreen();
             mainSettingsScreen = new SettingsScreen();
             gameScreen = new GameScreen();
+            controlsDisplayScreen = new DisplayControlsScreen();
 
             // #################  CHANGE DISPLAY SCREEN HERE  ########################
             currentScreen = gameScreen;
@@ -90,34 +92,12 @@ namespace DungeonGame.ScreenManagement
             screens.Add(mainMenuScreen);
             screens.Add(gameScreen);
             screens.Add(mainSettingsScreen);
+            screens.Add(controlsDisplayScreen);
 
         }
 
 
 
-        void toggleScreenSize(GraphicsDeviceManager _graphics)
-        {
-            if (Keyboard.GetState().IsKeyDown(Keys.F11))
-            {
-                if (!fullScreen && prevFullscreenState == true)
-                {
-                    Resolution = new Vector2(1920, 1080);
-                    _graphics.IsFullScreen = true;
-                    _graphics.ApplyChanges();
-                    fullScreen = true;
-                    prevFullscreenState = false;
-                }
-                else if (fullScreen && prevFullscreenState == false)
-                {
-                    Resolution = new Vector2(1600, 960);
-                    _graphics.IsFullScreen = false;
-                    _graphics.ApplyChanges();
-                    fullScreen = false;
-                    prevFullscreenState = true;
-                }
-            }
-
-        }
 
 
 
@@ -140,51 +120,17 @@ namespace DungeonGame.ScreenManagement
         }
 
 
-
-
         public virtual void Update(GameTime gameTime, Game1 game1, GraphicsDeviceManager _graphics)
         {
-            toggleScreenSize(_graphics);
+            //toggleScreenSize(_graphics);
             //toggleFullscreen();
-
+            toggleScreenSize();
 
             currentScreen.Update(gameTime, game1);
             currentScreen.Update(gameTime);
 
             SwitchingScreensLogic();
             
-
-            /*
-            if(currentScreen.screenType == "splash" && currentScreen.switchToScreen == "menu" && currentScreen != mainMenuScreen)
-            {
-                screens.Remove(currentScreen);
-                currentScreen = mainMenuScreen;
-            }
-
-            if (currentScreen.screenType == "menu" && currentScreen.switchToScreen == "gameScreen")
-            {
-                currentScreen = gameScreen;
-                mainMenuScreen.switchToScreen = null;
-            }
-
-            if (currentScreen.screenType == "menu" && currentScreen.switchToScreen == "settingsScreen")
-            {
-                currentScreen = mainSettingsScreen;
-                mainMenuScreen.switchToScreen = null;
-            }
-
-            if (currentScreen.screenType == "game" && currentScreen.switchToScreen == "menu")
-            {
-                currentScreen = mainMenuScreen;
-                gameScreen.switchToScreen = null;
-            }
-
-            if (currentScreen.screenType == "settings" && currentScreen.switchToScreen == "menu")
-            {
-                currentScreen = mainMenuScreen;
-                mainSettingsScreen.switchToScreen = null;
-            }
-            */
 
 
         }
@@ -210,30 +156,7 @@ namespace DungeonGame.ScreenManagement
 
         }
 
-        void SetResAndScreenSize(bool fs)
-        {
 
-            if (fs == true)
-            {
-                Resolution = new Vector2(1920, 1080);
-                IsFULL_SCREEN = true;
-
-
-            }
-            if (fs == false)
-            {
-                Resolution = new Vector2(1600, 960);
-                IsFULL_SCREEN = false;
-
-            }
-
-
-            fullScreen = IsFULL_SCREEN;
-            prevFullscreenState = !IsFULL_SCREEN;
-
-            //Resolution = new Vector2(1280, 720);
-
-        }
 
         void SwitchingScreensLogic()
         {
@@ -253,6 +176,11 @@ namespace DungeonGame.ScreenManagement
                 currentScreen = mainSettingsScreen;
                 mainMenuScreen.switchToScreen = null;
             }
+            if (switchScreenFromTo("menu", "controlsDisplay"))
+            {
+                currentScreen = controlsDisplayScreen;
+                mainMenuScreen.switchToScreen = null;
+            }
             if (switchScreenFromTo("game", "menu"))
             {
                 currentScreen = mainMenuScreen;
@@ -262,7 +190,11 @@ namespace DungeonGame.ScreenManagement
             {
                 currentScreen = mainMenuScreen;
                 mainSettingsScreen.switchToScreen = null;
-
+            }
+            if (switchScreenFromTo("controlsDisplay", "menu"))
+            {
+                currentScreen = mainMenuScreen;
+                controlsDisplayScreen.switchToScreen = null;
             }
 
         }
@@ -330,6 +262,69 @@ namespace DungeonGame.ScreenManagement
             }
 
         }
+
+        bool beingPressed = false;
+        void toggleScreenSize()
+        {
+
+            if (Keyboard.GetState().IsKeyDown(Globals.fullScreenKey) && beingPressed == false)
+            {
+                beingPressed = true;
+                if (fullScreen == false)
+                {
+                    fullScreen = true;
+
+                    Resolution = new Vector2(1920, 1080);
+                    IsFULL_SCREEN = true;
+                }
+                else if (fullScreen == true)
+                {
+                    fullScreen = false;
+
+                    Resolution = new Vector2(1600, 960);
+                    IsFULL_SCREEN = false;
+
+
+                }
+            }
+
+            if (Keyboard.GetState().IsKeyUp(Globals.fullScreenKey))
+            {
+                beingPressed = false;
+            }
+
+        }
+
+        void SetResAndScreenSize()
+        {
+            FileManager fm = new FileManager();
+            List<string> data = fm.ReadDataLineByLine("GameScreenData.txt");
+
+            foreach (string x in data)
+            {
+                string[] lines = x.Split(':');
+
+                if (lines[0] == "fullscreen")
+                {
+                    fullScreen = Convert.ToBoolean(lines[1]);
+                }
+
+            }
+
+            if (fullScreen == true)
+            {
+                Resolution = new Vector2(1920, 1080);
+                IsFULL_SCREEN = true;
+            }
+            if (fullScreen == false)
+            {
+                Resolution = new Vector2(1600, 960);
+                IsFULL_SCREEN = false;
+            }
+            //Resolution = new Vector2(1280, 720);
+        }
+
+
 
     }
 }

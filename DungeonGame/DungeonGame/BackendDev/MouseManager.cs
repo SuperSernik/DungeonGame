@@ -21,12 +21,15 @@ namespace DungeonGame.BackendDev
         Vector2 mousePosition;
         bool mousePressed;
 
-        Rectangle sourceRect;
+        Rectangle sourceRectNOTPressed, sourceRectPressed;
+
 
         public void LoadContent(ContentManager Content)
         {
             mouseTexture = Content.Load<Texture2D>("Cursors/Cursor");
-            sourceRect = new Rectangle(0, 0, mouseTexture.Width, mouseTexture.Height);
+            sourceRectNOTPressed = new Rectangle(0, 0, 32, 32);
+            sourceRectPressed = new Rectangle(32, 0, 32, 32);
+
             mousePressed = false;
         }
         public void Update(GameTime gameTime)
@@ -35,7 +38,7 @@ namespace DungeonGame.BackendDev
             mousePosition.X = m.Position.X;
             mousePosition.Y = m.Position.Y;
 
-            mouseRect = new Rectangle((int)mousePosition.X, (int)mousePosition.Y, mouseTexture.Width / 2, mouseTexture.Height);
+            mouseRect = new Rectangle((int)mousePosition.X - sourceRectPressed.Width/2, (int)mousePosition.Y - sourceRectPressed.Height/2, sourceRectPressed.Width, sourceRectPressed.Height);
 
             if(Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
@@ -50,14 +53,14 @@ namespace DungeonGame.BackendDev
         {
             if(ScreenManager.Instance.currentScreen == ScreenManager.Instance.gameScreen)
             {
-                ScreenManager.Instance.IsMOUSE_VISABLE = false;
+                ScreenManager.Instance.IsMOUSE_VISABLE = false; // CHANGE IF U WANT TO SEE MOUSE ON SCREEN IN GAME MODE
                 if (mousePressed)
                 {
-                    _spriteBatch.Draw(mouseTexture, mouseRect, new Rectangle(32, 0, 32, 32), Color.White);
+                    _spriteBatch.Draw(mouseTexture, mouseRect, sourceRectPressed, Color.White);
                 }
                 else
                 {
-                    _spriteBatch.Draw(mouseTexture, mouseRect, new Rectangle(0, 0, 32, 32), Color.White);
+                    _spriteBatch.Draw(mouseTexture, mouseRect, sourceRectNOTPressed, Color.White);
                 }
 
             }

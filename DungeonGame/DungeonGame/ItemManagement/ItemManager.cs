@@ -26,7 +26,7 @@ namespace DungeonGame.ItemManagement.Items
         public static Food banana = new Food("food", "banana");
 
 
-
+        public static List<Item> listOfAllItems = new List<Item>();
 
 
         public void LoadContent(ContentManager content)
@@ -39,6 +39,19 @@ namespace DungeonGame.ItemManagement.Items
             cake.LoadContent(content);
             vodka.LoadContent(content);
             banana.LoadContent(content);
+
+            listOfAllItems.AddRange(new List<Item>
+            {
+                pistol,
+                nyanLauncher,
+                bazooka,
+                pp,
+                cake,
+                vodka,
+                banana
+            });
+
+
         }
 
         public void Update(GameTime gameTime, Player p)
@@ -56,7 +69,11 @@ namespace DungeonGame.ItemManagement.Items
         public void Draw(SpriteBatch _spriteBatch)
         {
             //pistol.Draw(_spriteBatch);
-            GameScreen.MainPlayer.CurrentItemHeld.Draw(_spriteBatch);
+            if(GameScreen.MainPlayer.CurrentItemHeld != null)
+            {
+                GameScreen.MainPlayer.CurrentItemHeld.Draw(_spriteBatch);
+
+            }
 
         }
 

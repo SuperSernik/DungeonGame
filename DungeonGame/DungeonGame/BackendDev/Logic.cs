@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.SymbolStore;
 using System.Linq;
@@ -10,19 +11,40 @@ namespace DungeonGame.BackendDev
     public class Logic
     {
 
-        public bool Toggle(bool toggle, bool clk)
+        
+        bool value = false;
+        bool beingPressed = false;
+        bool output;
+
+        public Logic(bool originalValue)
         {
-            if (toggle && clk)
+            output = originalValue;
+        }
+
+        
+        public bool ToggleByKey(Keys key)
+        {
+            
+            if (Keyboard.GetState().IsKeyDown(Keys.F8) && beingPressed == false)
             {
-                return true;
-            }
-            else if (toggle && !clk)
-            {
-                return false;
+                beingPressed = true;
+                if (value == false)
+                {
+                    output = true;
+                }
+                else if (value == true)
+                {
+                    output = false;
+
+                }
             }
 
-            return false;
+            if (Keyboard.GetState().IsKeyUp(Keys.F8))
+            {
+                beingPressed = false;
+            }
 
+            return output;
         }
 
 

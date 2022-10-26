@@ -9,6 +9,8 @@ using DungeonGame.ScreenManagement;
 using DungeonGame.PlayerManagement;
 using DungeonGame.BackendDev;
 using DungeonGame.ScreenManagement.Screens;
+using DungeonGame.InventoryManagement;
+using DungeonGame.ItemManagement.Items;
 
 namespace DungeonGame.Entities
 {
@@ -54,17 +56,29 @@ namespace DungeonGame.Entities
         }
 
 
-
+        bool addedItemFromThisChest = false;
         public override void Update(GameTime gameTime, Player mainPlayer)
         {
-            Logic l = new Logic();
             bool chestIsOpen = false;
+            
 
-            if (chestRectangle.Intersects(mainPlayer.playerCollisionBoxRect) && Keyboard.GetState().IsKeyDown(Keys.E))
+            if (chestRectangle.Intersects(mainPlayer.playerCollisionBoxRect) && Keyboard.GetState().IsKeyDown(Globals.useKey))
             {
                 if (chestIsOpen == false)
                 {
                     chestOpen = true;
+
+                    for(int i = 0; i < Inventory.itemsInHotBar.Length; i++)
+                    {
+                        if (Inventory.itemsInHotBar[i] == null && addedItemFromThisChest == false)
+                        {
+                            Random rn = new Random();
+                            Inventory.itemsInHotBar[i] = ItemManager.listOfAllItems[rn.Next(ItemManager.listOfAllItems.Count)];
+                            addedItemFromThisChest = true;
+                        }
+                    }
+
+
                 }
 
 

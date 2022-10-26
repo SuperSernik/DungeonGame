@@ -65,11 +65,12 @@ namespace DungeonGame.ItemManagement.Items
             
             if (angleOfLine <= Math.PI / 2 && angleOfLine >= -Math.PI / 2)
             {
+                //angleOfLine = (float)Math.Clamp(angleOfLine, -0.3, 0.1);
                 _spriteBatch.Draw(textureAtlas, new Rectangle((int)position.X, (int)position.Y, (int)foodDisplaySize.X, (int)foodDisplaySize.Y), sourceRect, Color.White, angleOfLine, new Vector2(0, foodSize.Y / 2), SpriteEffects.None, 1);
-
             }
             else
             {
+                //angleOfLine = (float)Math.Clamp(angleOfLine, -(Math.PI-0.3), (Math.PI-0.1));
                 _spriteBatch.Draw(textureAtlas, new Rectangle((int)position.X, (int)position.Y, (int)foodDisplaySize.X, (int)foodDisplaySize.Y), sourceRect, Color.White, angleOfLine, new Vector2(0, foodSize.Y / 2), SpriteEffects.FlipVertically, 1);
 
             }

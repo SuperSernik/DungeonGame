@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Input;
 using DungeonGame.MapManagement;
 using DungeonGame.PlayerManagement;
 using DungeonGame.BackendDev;
+using System.Diagnostics;
 
 namespace DungeonGame
 {
@@ -32,6 +33,10 @@ namespace DungeonGame
 
             _graphics.IsFullScreen = ScreenManager.Instance.IsFULL_SCREEN;
             IsMouseVisible = ScreenManager.Instance.IsMOUSE_VISABLE;
+
+            Window.AllowAltF4 = true;
+            Window.AllowUserResizing = false;
+            Window.IsBorderless = false;
             _graphics.ApplyChanges();
 
             currentGAMESCREEN = "GameScreen";
@@ -64,6 +69,8 @@ namespace DungeonGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             IsMouseVisible = ScreenManager.Instance.IsMOUSE_VISABLE;
+            _graphics.IsFullScreen = ScreenManager.Instance.IsFULL_SCREEN;
+            _graphics.ApplyChanges();
 
 
             ScreenManager.Instance.Update(gameTime, this, _graphics);

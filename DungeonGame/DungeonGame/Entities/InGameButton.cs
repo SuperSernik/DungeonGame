@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using DungeonGame.BackendDev;
 using DungeonGame.Entities;
@@ -55,39 +56,55 @@ namespace DungeonGame.Entities
 
         }
 
-
+        bool beingPressed = false;
+        double timer = 0;
+        int threshold = 100;
         public override void Update(GameTime gameTime, Player mainPlayer)
         {
-            
+
+
+            if (buttonRECT.Intersects(mainPlayer.playerCollisionBoxRect) &&Keyboard.GetState().IsKeyDown(Globals.useKey) && beingPressed == false)
+            {
+                beingPressed = true;
+                if (pressed == false)
+                {
+                    pressed = true;
+                    if (buttonType == "red" && mainPlayer.playerHealth > 0)
+                    {
+                        mainPlayer.playerHealth--;
+                    }
+
+                    if (buttonType == "green" && mainPlayer.playerHealth < 10)
+                    {
+                        mainPlayer.playerHealth++;
+                    }
+                    timer = gameTime.ElapsedGameTime.TotalMilliseconds;
+
+                }         
+
+            }
+
+            if (timer > threshold)
+            {
+                pressed = false;
+                timer = 0;
+            }
+            else
+            {
+                timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            }
 
             if (Keyboard.GetState().IsKeyUp(Keys.E))
             {
-                pressed = false;
-                prevState = false;
+                beingPressed = false;
             }
-            
-            if (buttonRECT.Intersects(mainPlayer.playerCollisionBoxRect) && Keyboard.GetState().IsKeyDown(Keys.E) && prevState == false)
-            {
-                pressed = true;
-                prevState = true;
 
-                if (buttonType == "red" && mainPlayer.playerHealth > 0)
-                {
-                    mainPlayer.playerHealth--;
-                }
-                
-                if (buttonType == "green" && mainPlayer.playerHealth < 10)
-                {
-                    mainPlayer.playerHealth++;
-                }
-
-            }
-            
 
 
 
 
         }
+
 
         public override void Draw(SpriteBatch _spriteBatch)
         {

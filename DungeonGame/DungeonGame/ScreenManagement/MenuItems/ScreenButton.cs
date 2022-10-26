@@ -61,14 +61,17 @@ namespace DungeonGame.ScreenManagement.MenuItems
             if(btnDesign == "boxOne")
             {
                 btnSourceRect = new Rectangle(0, 0, 192, 80);
+                buttonRect = new Rectangle((int)buttonPos.X, (int)buttonPos.Y, (int)(btnSourceRect.Width * 1.5), (int)(btnSourceRect.Height * 1.5));
+
 
             }
-            if(btnDesign == "cross")
+            if (btnDesign == "cross")
             {
                 btnSourceRect = new Rectangle(192, 0, 80, 80);
+                buttonRect = new Rectangle((int)buttonPos.X, (int)buttonPos.Y, (int)(btnSourceRect.Width * 1), (int)(btnSourceRect.Height * 1));
+
             }
 
-            buttonRect = new Rectangle((int)buttonPos.X, (int)buttonPos.Y, (int)(btnSourceRect.Width * 1.5), (int)(btnSourceRect.Height * 1.5));
             textPos = new Vector2(((buttonRect.X + (buttonRect.Width / 2))) - (buttonTEXT.Length/2) * 16, (buttonRect.Y + (buttonRect.Height / 2)) -15);
 
             btnPressed = false;

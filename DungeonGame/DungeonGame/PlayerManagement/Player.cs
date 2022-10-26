@@ -98,7 +98,7 @@ namespace DungeonGame.PlayerManagement
             whitePixel = Content.Load<Texture2D>("Fx/WhitePixel");
 
             playerPurse = 0000;
-            playerHealth = 5;
+            playerHealth = 10;
 
 
         }
@@ -156,7 +156,7 @@ namespace DungeonGame.PlayerManagement
             DrawPlayerHitBox(playerTOP, playerBOTTOM, playerLEFT, playerRIGHT);
 
 
-            if (Keyboard.GetState().IsKeyDown(Keys.W) && !PlayerHasCollided(visableMap, playerTOP))
+            if (Keyboard.GetState().IsKeyDown(Globals.upKey) && !PlayerHasCollided(visableMap, playerTOP))
             {
 
                 playerPosition.Y -= playerVelocity;
@@ -165,7 +165,7 @@ namespace DungeonGame.PlayerManagement
 
 
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.S) && !PlayerHasCollided(visableMap, playerBOTTOM))
+            if (Keyboard.GetState().IsKeyDown(Globals.downKey) && !PlayerHasCollided(visableMap, playerBOTTOM))
             {
                 
                 playerPosition.Y += playerVelocity;
@@ -173,14 +173,14 @@ namespace DungeonGame.PlayerManagement
                 PlayerMoving = true;
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.A) && !PlayerHasCollided(visableMap, playerLEFT))
+            if (Keyboard.GetState().IsKeyDown(Globals.leftKey) && !PlayerHasCollided(visableMap, playerLEFT))
             {
                 playerPosition.X -= playerVelocity;
                 sourceRectangles = GetSourceRects("Left");
                 PlayerMoving = true;
 
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.D) && !PlayerHasCollided(visableMap, playerRIGHT))
+            if (Keyboard.GetState().IsKeyDown(Globals.rightKey) && !PlayerHasCollided(visableMap, playerRIGHT))
             {
                 playerPosition.X += playerVelocity;
                 sourceRectangles = GetSourceRects("Right");
@@ -195,7 +195,7 @@ namespace DungeonGame.PlayerManagement
             {
                 sourceRectangles = GetSourceRects("Idle");
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.LeftShift))
+            if (Keyboard.GetState().IsKeyDown(Globals.sprintKey))
             {
                 playerVelocity = 7f;
             }
