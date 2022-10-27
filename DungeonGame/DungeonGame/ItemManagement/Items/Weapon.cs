@@ -45,7 +45,7 @@ namespace DungeonGame.ItemManagement.Items
 
         public override void Update(GameTime gameTime, Vector2 pos)
         {
-            position = new Vector2(ScreenManager.Instance.Resolution.X / 2, ScreenManager.Instance.Resolution.Y / 2 + 15); // the 10 is displacement from the center of the screen
+            position = new Vector2(ScreenManager.Instance.Resolution.X / 2, ScreenManager.Instance.Resolution.Y / 2 + 15); // the 15 is displacement from the center of the screen
 
             MouseState mouse = Mouse.GetState();
             distance.X = mouse.X - position.X;

@@ -58,7 +58,7 @@ namespace DungeonGame.Entities
 
         bool beingPressed = false;
         double timer = 0;
-        int threshold = 100;
+        int threshold = 150;
         public override void Update(GameTime gameTime, Player mainPlayer)
         {
 
@@ -86,7 +86,10 @@ namespace DungeonGame.Entities
 
             if (timer > threshold)
             {
-                pressed = false;
+                if (!beingPressed)
+                {
+                    pressed = false;
+                }
                 timer = 0;
             }
             else

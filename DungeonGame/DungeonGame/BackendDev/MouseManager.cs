@@ -1,4 +1,5 @@
-﻿using DungeonGame.ScreenManagement;
+﻿using DungeonGame.InventoryManagement;
+using DungeonGame.ScreenManagement;
 using DungeonGame.ScreenManagement.Screens;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -15,13 +16,21 @@ namespace DungeonGame.BackendDev
 {
     class MouseManager
     {
-
-        Rectangle mouseRect;
         Texture2D mouseTexture;
+
+        // Aimer Cursor
+        Rectangle mouseRect;
         Vector2 mousePosition;
         bool mousePressed;
-
         Rectangle sourceRectNOTPressed, sourceRectPressed;
+
+        //pointer cursor
+        Rectangle pointerMouseRect;
+        Vector2 pointerMousePosition;
+        bool pointerMousePressed;
+        Rectangle pointerSourceRectNOTPressed, pointerSourceRectPressed;
+
+
 
 
         public void LoadContent(ContentManager Content)
@@ -29,8 +38,12 @@ namespace DungeonGame.BackendDev
             mouseTexture = Content.Load<Texture2D>("Cursors/Cursor");
             sourceRectNOTPressed = new Rectangle(0, 0, 32, 32);
             sourceRectPressed = new Rectangle(32, 0, 32, 32);
-
             mousePressed = false;
+
+            pointerSourceRectNOTPressed = new Rectangle(0, 32, 32, 32);
+            pointerSourceRectPressed = new Rectangle(32, 32, 32, 32);
+            pointerMousePressed = false;
+
         }
         public void Update(GameTime gameTime)
         {
@@ -54,20 +67,35 @@ namespace DungeonGame.BackendDev
             if(ScreenManager.Instance.currentScreen == ScreenManager.Instance.gameScreen)
             {
                 ScreenManager.Instance.IsMOUSE_VISABLE = false; // CHANGE IF U WANT TO SEE MOUSE ON SCREEN IN GAME MODE
-                if (mousePressed)
+
+                if (!Inventory.invVisable)
                 {
-                    _spriteBatch.Draw(mouseTexture, mouseRect, sourceRectPressed, Color.White);
+                    if (mousePressed)
+                    {
+                        _spriteBatch.Draw(mouseTexture, mouseRect, sourceRectPressed, Color.White);
+                    }
+                    else
+                    {
+                        _spriteBatch.Draw(mouseTexture, mouseRect, sourceRectNOTPressed, Color.White);
+                    }
                 }
-                else
+                if (Inventory.invVisable)
                 {
-                    _spriteBatch.Draw(mouseTexture, mouseRect, sourceRectNOTPressed, Color.White);
+                    if (mousePressed)
+                    {
+                        _spriteBatch.Draw(mouseTexture, mouseRect, pointerSourceRectPressed, Color.White);
+                    }
+                    else
+                    {
+                        _spriteBatch.Draw(mouseTexture, mouseRect, pointerSourceRectNOTPressed, Color.White);
+                    }
                 }
+
 
             }
             else
             {
                 ScreenManager.Instance.IsMOUSE_VISABLE = true;
-
             }
 
             if (GameScreen.developerView)
