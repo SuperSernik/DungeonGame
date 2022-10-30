@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "/LVCga+BJci8Qm52P0J1j3lGZbkgzNv2QJILpqnUD5qsReknSs/12L/zEhQ1fhQ0HxPaL+Nir5mvt4Wh6R/6uw==",
+  "dgSpecHash": "9OAkTVJRnlhNts7M2VEepGdUY8eysnOOeLqoyPVfcpQcGmniQLmcV93VaWAFkXpnleuiylSu2EOvdtH40OL6Zw==",
   "success": true,
-  "projectFilePath": "E:\\Damo\\Academia Work\\Computer Science\\Computer Science Coursework\\GitHub Release\\DungeonGame\\DungeonGame\\DungeonGame\\DungeonGame.csproj",
+  "projectFilePath": "C:\\Users\\Damo\\Desktop\\Dungeon Game\\DungeonGame\\DungeonGame\\DungeonGame\\DungeonGame.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Admin\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+    "C:\\Users\\Damo\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\Damo\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
   ],
   "logs": []
 }

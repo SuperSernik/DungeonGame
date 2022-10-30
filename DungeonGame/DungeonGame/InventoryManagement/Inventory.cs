@@ -91,7 +91,7 @@ namespace DungeonGame.InventoryManagement
             itemsInInv[0,0] = ItemManager.banana;
             itemsInInv[0,5] = ItemManager.pistol;
             itemsInInv[2,0] = ItemManager.bazooka;
-            itemsInInv[2,5] = ItemManager.pp;
+            itemsInInv[2,5] = ItemManager.banana;
             itemsInInv[1,3] = ItemManager.nyanLauncher;
             itemsInInv[1,2] = ItemManager.nyanLauncher;
 
