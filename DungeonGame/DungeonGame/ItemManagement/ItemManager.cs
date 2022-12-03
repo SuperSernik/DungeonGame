@@ -14,16 +14,15 @@ namespace DungeonGame.ItemManagement.Items
     public class ItemManager
     {
 
-
-
-        public static Weapon pistol = new Weapon("weapon", "pistol");
         public static Weapon nyanLauncher = new Weapon("weapon", "nyanLauncher");
-        public static Weapon bazooka = new Weapon("weapon", "bazooka");
         public static Weapon pp = new Weapon("weapon", "pp");
 
         public static Food cake = new Food("food", "cake");
         public static Food vodka = new Food("food", "vodka");
         public static Food banana = new Food("food", "banana");
+
+        public static Pistol pistol = new Pistol("weapon", "pistol");
+        public static Bazooka bazooka = new Bazooka("weapon", "bazooka");
 
 
         public static List<Item> listOfAllItems = new List<Item>();
@@ -56,6 +55,13 @@ namespace DungeonGame.ItemManagement.Items
 
         public void Update(GameTime gameTime, Player p)
         {
+
+            foreach (var x in listOfAllItems)
+            {
+                x.Update(gameTime, p.playerPositionORIGIN);
+                
+            }
+            /*
             pistol.Update(gameTime, p.playerPositionORIGIN);
             nyanLauncher.Update(gameTime, p.playerPositionORIGIN);
             bazooka.Update(gameTime, p.playerPositionORIGIN);
@@ -64,6 +70,7 @@ namespace DungeonGame.ItemManagement.Items
             cake.Update(gameTime, p.playerPositionORIGIN);
             vodka.Update(gameTime, p.playerPositionORIGIN);
             banana.Update(gameTime, p.playerPositionORIGIN);
+            */
         }
 
         public void Draw(SpriteBatch _spriteBatch)

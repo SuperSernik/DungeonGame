@@ -51,7 +51,10 @@ namespace DungeonGame.BackendDev
             mousePosition.X = m.Position.X;
             mousePosition.Y = m.Position.Y;
 
-            mouseRect = new Rectangle((int)mousePosition.X - sourceRectPressed.Width/2, (int)mousePosition.Y - sourceRectPressed.Height/2, sourceRectPressed.Width, sourceRectPressed.Height);
+            mouseRect = new Rectangle((int)mousePosition.X - sourceRectPressed.Width/2,
+                (int)mousePosition.Y - sourceRectPressed.Height/2,
+                sourceRectPressed.Width,
+                sourceRectPressed.Height);
 
             if(Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
@@ -90,7 +93,6 @@ namespace DungeonGame.BackendDev
                         _spriteBatch.Draw(mouseTexture, mouseRect, pointerSourceRectNOTPressed, Color.White);
                     }
                 }
-
 
             }
             else

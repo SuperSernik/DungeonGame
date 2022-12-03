@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
@@ -8,8 +10,14 @@ using System.Threading.Tasks;
 
 namespace DungeonGame
 {
-    class Globals
+    public class Globals
     {
+        public static SpriteBatch _spriteBatch { get; set; }
+        public static GraphicsDeviceManager _graphics { get; set; }
+        public static ContentManager _content { get; set; }
+        public static GameTime _gameTime { get; set; }
+
+
         public static Keys upKey = Keys.W;
         public static Keys downKey = Keys.S;
         public static Keys leftKey = Keys.A;
@@ -18,6 +26,8 @@ namespace DungeonGame
 
         public static Keys fullScreenKey = Keys.F11;
         public static Keys developerModeKey = Keys.F8;
+        public static Keys zoomIn = Keys.Add;
+        public static Keys zoomOut = Keys.Subtract;
 
         public static Keys useKey = Keys.F;
         public static Keys inventoryKey = Keys.E;

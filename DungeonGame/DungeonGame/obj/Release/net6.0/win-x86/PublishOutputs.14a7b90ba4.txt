@@ -8,6 +8,7 @@ E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Releas
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Recources\SavedData\GameScreenData.txt
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Recources\SavedData\TestData.txt
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Recources\SavedData\TextureDATA.txt
+E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/Bullets\whiteBullet.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/Cursors\Cursor.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/DevAidTextures\blueBox1px.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/DevAidTextures\blueBox2px.xnb
@@ -46,6 +47,7 @@ E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Releas
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/SplashScreens\DamoDevRed.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/TileMaps\chestsTileMap.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/TileMaps\TileMapBack.xnb
+E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/UserInterface\controls.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/UserInterface\InventoryUI.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\Content/Weapons\weaponsAtlas.xnb
 E:\Damo\Academia Work\Computer Science\Computer Science Coursework\GitHub Release\DungeonGameReleases\DungeonGame_EXEs\SDL2.dll

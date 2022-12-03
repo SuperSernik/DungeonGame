@@ -42,7 +42,8 @@ namespace DungeonGame.ScreenManagement.Screens
             base.LoadContent(Content);
             image = Content.Load<Texture2D>("SplashScreens/DamoDevRed");
             origin = new Vector2(image.Width / 2, image.Height / 2);
-            imageRect = new Rectangle((int)(ScreenManager.Instance.Resolution.X / 2) - (int)origin.X, (int)(ScreenManager.Instance.Resolution.Y / 2) - (int)origin.Y, image.Width, image.Height);
+            imageRect = new Rectangle((int)(ScreenManager.Instance.Resolution.X / 2) - (int)origin.X,
+                (int)(ScreenManager.Instance.Resolution.Y / 2) - (int)origin.Y, image.Width, image.Height);
 
             faderPxl = Content.Load<Texture2D>("Fx/BlackPixel");
             faderRect = new Rectangle(0, 0, (int)ScreenManager.Instance.Resolution.X, (int)ScreenManager.Instance.Resolution.Y);
@@ -58,14 +59,12 @@ namespace DungeonGame.ScreenManagement.Screens
         {
             base.UnloadContent();
         }
-
         public override void Update(GameTime gameTime)
         {
             if (faderOpacity > -2)
             {
                 faderOpacity -= fadeSpeed + (double)gameTime.ElapsedGameTime.TotalSeconds;
             }
-
             if (timer > threshold)
             {
                 readyToSwitch = true;
@@ -75,7 +74,6 @@ namespace DungeonGame.ScreenManagement.Screens
             {
                 timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
-
         }
 
         public override void Draw(SpriteBatch _spriteBatch)

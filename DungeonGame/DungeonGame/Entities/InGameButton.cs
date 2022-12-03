@@ -61,9 +61,7 @@ namespace DungeonGame.Entities
         int threshold = 150;
         public override void Update(GameTime gameTime, Player mainPlayer)
         {
-
-
-            if (buttonRECT.Intersects(mainPlayer.playerCollisionBoxRect) &&Keyboard.GetState().IsKeyDown(Globals.useKey) && beingPressed == false)
+                if (buttonRECT.Intersects(mainPlayer.playerCollisionBoxRect) &&Keyboard.GetState().IsKeyDown(Globals.useKey) && beingPressed == false)
             {
                 beingPressed = true;
                 if (pressed == false)

@@ -14,20 +14,15 @@ namespace DungeonGame.NPCs
 {
     class NPCManager
     {
-
         List<NPC> NPCs = new List<NPC>();
-
         public NPCManager()
         {
-
         }
-
         public void LoadContent(ContentManager Content)
         {
             addNPCsToList(CreateZombies(Content, GameScreen.numberOfZombies));
             addNPCsToList(CreateVillagers(Content, GameScreen.numberOfVillagers));
         }
-
         public void Update(GameTime gameTime)
         {
             foreach (NPC npc in NPCs)
@@ -36,15 +31,10 @@ namespace DungeonGame.NPCs
                 npc.Update(gameTime);
             }
         }
-
         public void Draw(SpriteBatch _spriteBatch)
         {
             foreach (NPC npc in NPCs) { npc.Draw(_spriteBatch); }
         }
-
-
-
-
         void addNPCsToList(List<NPC> listOfNPCs)
         {
             foreach (NPC npc in listOfNPCs)
@@ -52,7 +42,6 @@ namespace DungeonGame.NPCs
                 NPCs.Add(npc);
             }
         }
-
         public List<NPC> CreateZombies(ContentManager Content, int ammountOfZombies)
         {
             // Create a list of zombies of type NPC

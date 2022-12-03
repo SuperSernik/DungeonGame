@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using DungeonGame.NPCs;
 using DungeonGame.BackendDev;
+using DungeonGame.ItemManagement.NonItemItems;
 
 namespace DungeonGame.ScreenManagement.Screens
 {
@@ -22,7 +23,7 @@ namespace DungeonGame.ScreenManagement.Screens
         public static int numberOfZombies, numberOfVillagers, numberOfCoins;
         public static bool developerView;
 
-
+        
 
         public static Player MainPlayer = new Player();
         DrawBackground db = new DrawBackground(ScreenManager.visibleMAP);
@@ -68,8 +69,9 @@ namespace DungeonGame.ScreenManagement.Screens
             em.Update(gameTime);
             nm.Update(gameTime);
 
+
             MainPlayer.Update(gameTime);
-            _camera.Follow(MainPlayer);
+            _camera.Follow(MainPlayer, gameTime);
 
             if (Keyboard.GetState().IsKeyDown(Keys.B))
             {
@@ -127,6 +129,7 @@ namespace DungeonGame.ScreenManagement.Screens
 
             MainPlayer.Draw(_spriteBatch);
             _spriteBatch.End();
+
 
         }
 

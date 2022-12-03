@@ -77,23 +77,15 @@ namespace DungeonGame.PlayerManagement
             _spriteBatch.Draw(blkPxl, blkPxlRect, new Color(Color.Black, 0.6f));
             _spriteBatch.Draw(coinTexture, coinRect, Color.White);
             _spriteBatch.DrawString(EngOldFont18, HEREplayerCoins, textPos, Color.White);
-
             for (int i = 0; i < hearts.Length; i++)
             {
                 _spriteBatch.Draw(justRedHearts, hearts[i], new Rectangle(0, 0, 32, 32), new Color(Color.LightSeaGreen, 0.6f));
             }
-
-
-
             ammOFHearts = HEREplayerHealth / 2;
-
             for (int i = 0; i < ammOFHearts; i++)
             {
                 _spriteBatch.Draw(heartTextureAtlas, hearts[i], new Rectangle(0, 0, 32, 32), Color.White);
-
-            }
-            
-            
+            }      
             if (HEREplayerHealth == 1)
             {
                 _spriteBatch.Draw(heartTextureAtlas, hearts[0], new Rectangle(32, 0, 32, 32), Color.White);

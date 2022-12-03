@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DungeonGame.ItemManagement.Items;
+using DungeonGame.ItemManagement.NonItemItems;
 
 namespace DungeonGame.ScreenManagement.Overlays
 {
@@ -23,7 +24,12 @@ namespace DungeonGame.ScreenManagement.Overlays
         public static ItemManager im = new ItemManager();
         public InventoryManager invM = new InventoryManager();
 
-        Line pL = new Line(new Vector2(ScreenManager.Instance.Resolution.X / 2, (ScreenManager.Instance.Resolution.Y / 2) + 15), Vector2.Zero, GameScreen.developerView, Color.Turquoise);
+        BulletManager bulletM = new BulletManager();
+
+        Line pL = new Line(new Vector2(ScreenManager.Instance.Resolution.X / 2,
+            (ScreenManager.Instance.Resolution.Y / 2) + 15),
+            Vector2.Zero,
+            GameScreen.developerView, Color.Turquoise);
 
 
         public override void LoadContent(ContentManager content)
@@ -34,6 +40,8 @@ namespace DungeonGame.ScreenManagement.Overlays
             im.LoadContent(content);
             invM.LoadContent(content);
 
+            bulletM.LoadContent();
+
         }
 
         public override void Update(GameTime gameTime)
@@ -43,15 +51,22 @@ namespace DungeonGame.ScreenManagement.Overlays
             pL.Update(gameTime, GameScreen.MainPlayer);
             im.Update(gameTime, GameScreen.MainPlayer);
             invM.Update(gameTime);
+
+            bulletM.Update();
         }
 
         public override void Draw(SpriteBatch _spriteBatch)
         {
             base.Draw(_spriteBatch);
+
+            bulletM.Draw();
+
+
             pid.Draw(_spriteBatch);
             pL.Draw(_spriteBatch);
             im.Draw(_spriteBatch);
             invM.Draw(_spriteBatch);
+
 
         }
 

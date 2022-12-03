@@ -11,13 +11,10 @@ namespace DungeonGame.ItemManagement.Items
 {
     public class Item
     {
-        /// <summary>
-        /// Items#  weapons, food, potions, ammunuition
-        /// 
-        /// </summary>
 
         public string itemType, itemName;
         public Rectangle sourceRect;
+        public bool isHolding;
 
         public Item(string newItemType, string newItemName)
         {

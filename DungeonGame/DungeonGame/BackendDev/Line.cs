@@ -94,7 +94,6 @@ namespace DungeonGame.BackendDev
             
             lineLength = Math.Sqrt((distance.X * distance.X) + (distance.Y * distance.Y));
 
-
         }
         public void Update(GameTime gameTime, Vector2 Ufrom, Vector2 Uto) // DYNAMIC FROM TO
         {
@@ -110,8 +109,6 @@ namespace DungeonGame.BackendDev
             linePos.Y = (int)from.Y;
 
             lineLength = Math.Sqrt((distance.X * distance.X) + (distance.Y * distance.Y));
-
-
 
         }
         public void Update(GameTime gameTime) // STATIC FROM TO 

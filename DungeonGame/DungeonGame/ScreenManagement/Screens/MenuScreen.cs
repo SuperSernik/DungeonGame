@@ -94,10 +94,7 @@ namespace DungeonGame.ScreenManagement.Screens
                     switchToScreen = "controlsDisplay";
                 }
 
-
             }
-
-
         }
 
         public override void Draw(SpriteBatch _spriteBatch)

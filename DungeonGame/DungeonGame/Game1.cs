@@ -18,7 +18,6 @@ namespace DungeonGame
 
         public static string currentGAMESCREEN;
         
-
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -47,7 +46,13 @@ namespace DungeonGame
 
         protected override void LoadContent()
         {
+
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            Globals._spriteBatch = _spriteBatch;
+            Globals._content = Content;
+            Globals._graphics = _graphics;
+
             MapLayerManager.Instance.LoadContent(Content);
 
             ScreenManager.Instance.LoadContent(Content);
@@ -66,6 +71,8 @@ namespace DungeonGame
 
         protected override void Update(GameTime gameTime)
         {
+            Globals._gameTime = gameTime;
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             IsMouseVisible = ScreenManager.Instance.IsMOUSE_VISABLE;
@@ -91,19 +98,13 @@ namespace DungeonGame
 
             base.Draw(gameTime);
         }
-
-
-
-
-
         public string CurrentGameScreen
         {
             get { return currentGAMESCREEN; }
         }
-
         public void Quit()
         {
             this.Exit();
-}
+        }
     }
 }

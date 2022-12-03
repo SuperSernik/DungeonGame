@@ -42,14 +42,11 @@ namespace DungeonGame.Entities
                 {
                     toRem.Add(entity);
                 }
-
             }
-            
             foreach (Entity en in toRem)
             {
                 Entities.Remove(en);
             }
-
         }
 
         public void Draw(SpriteBatch _spriteBatch)
@@ -57,10 +54,6 @@ namespace DungeonGame.Entities
             foreach (Entity entity in Entities) { entity.Draw(_spriteBatch); }
 
         }
-
-
-
-
         void addEntitiesToList(List<Entity> listOfEntities)
         {
             foreach (Entity en in listOfEntities)
@@ -68,7 +61,6 @@ namespace DungeonGame.Entities
                 Entities.Add(en);
             }
         }
-
         public List<Entity> DrawChests(ContentManager Content)
         {
             TileSearch ts = new TileSearch();
@@ -99,8 +91,6 @@ namespace DungeonGame.Entities
             }
             return ListOfCoins;
         }
-
-
 
         public List<Entity> CreateInGameButton(ContentManager Content)
         {

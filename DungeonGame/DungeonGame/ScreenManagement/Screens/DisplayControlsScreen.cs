@@ -36,7 +36,10 @@ namespace DungeonGame.ScreenManagement.Screens
             ScreenBtns.Add(backButton);
 
             controlsLayout = Content.Load<Texture2D>("UserInterface/controls");
-            controlsLayoutRect = new Rectangle((int)ScreenManager.Instance.Resolution.X/2 - controlsLayout.Width /2, (int)ScreenManager.Instance.Resolution.Y /2- controlsLayout.Height / 2, controlsLayout.Width, controlsLayout.Height);
+            controlsLayoutRect = new Rectangle((int)ScreenManager.Instance.Resolution.X/2 - controlsLayout.Width /2,
+                (int)ScreenManager.Instance.Resolution.Y /2- controlsLayout.Height / 2,
+                controlsLayout.Width,
+                controlsLayout.Height);
         }
         public override void Update(GameTime gameTime)
         {
@@ -47,13 +50,8 @@ namespace DungeonGame.ScreenManagement.Screens
                 if (button.buttonType == "backToMenu" && button.btnPressed == true)
                 {
                     switchToScreen = "menu";
-
-
                 }
-
-
             }
-
         }
         public override void Draw(SpriteBatch _spriteBatch)
         {
