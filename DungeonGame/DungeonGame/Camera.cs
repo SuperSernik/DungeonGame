@@ -28,6 +28,7 @@ namespace DungeonGame
 
         public void Shake(GameTime gt, bool shake)
         {
+            
             if (shake)
             {
                 if (timer > threshold)
@@ -51,7 +52,7 @@ namespace DungeonGame
             {
                 angle = 0;
             }
-
+            
 
 
             RotateM = new Matrix(new Vector4((float)Math.Cos(angle), (float)-Math.Sin(angle), 0, 0),
