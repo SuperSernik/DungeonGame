@@ -12,6 +12,7 @@ namespace DungeonGame.ItemManagement.NonItemItems
 {
     public class Bullet
     {
+        // vars
         Texture2D texture;
         Rectangle rect;
         Vector2 pos;
@@ -22,13 +23,14 @@ namespace DungeonGame.ItemManagement.NonItemItems
 
 
         public Bullet(Vector2 spawnLoc, Vector2 mDirection, string bulletSize, float nVelocity)
-        {
+        {// sets all of the values that identify the bullet
             pos = spawnLoc;
             direction = mDirection;
             rotation = 0;
             velocity = nVelocity;
             prevVelocity = nVelocity;
 
+            // sets the diameter of the bullet depending on the side
             if(bulletSize == "small")
             {
                 bulletDims = 8;
@@ -55,7 +57,7 @@ namespace DungeonGame.ItemManagement.NonItemItems
             pos.X = pos.X + (int)(0.1 * direction.X);
             pos.Y = pos.Y + (int)(0.1 * direction.Y);
             */
-
+            // creates the direction vector of the bullet
             double dirMOD = Math.Sqrt(((direction.X * direction.X) + (direction.Y * direction.Y)));
             Vector2 newV = direction / (int)dirMOD;
             pos += (newV) * velocity;
@@ -79,7 +81,7 @@ namespace DungeonGame.ItemManagement.NonItemItems
         public void Draw()
         {
             //Globals._spriteBatch.Draw(texture, rect, Color.White);
-
+            // draws the bullet
             Globals._spriteBatch.Draw(texture, rect, new Rectangle(0, 0, 16, 16), Color.White, rotation, new Vector2(8, 8), SpriteEffects.None, 1);
         }
 

@@ -17,10 +17,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace DungeonGame.Entities
-{
+{// creates the template for a button in game
     class InGameButton : Entity
     {
-
+        // vars
         string buttonType;
         bool pressed;
         bool prevState;
@@ -34,13 +34,14 @@ namespace DungeonGame.Entities
 
         public InGameButton(string newButtonType, Vector2 position)
         {
+            // sets position of button
             buttonType = newButtonType;
             buttonRECT = new Rectangle((int)position.X, (int)position.Y, 32, 32);
-
         }
 
         public override void LoadContent(ContentManager Content)
         {
+            // depending on what button it is, it fetchs correct texture
             if(buttonType == "red")
             {
                 buttonTextureAtlas = Content.Load<Texture2D>("Entities/gameButtonRED");
@@ -55,33 +56,30 @@ namespace DungeonGame.Entities
             prevState = false;
 
         }
-
+        // button animation logic 
         bool beingPressed = false;
         double timer = 0;
         int threshold = 150;
         public override void Update(GameTime gameTime, Player mainPlayer)
         {
                 if (buttonRECT.Intersects(mainPlayer.playerCollisionBoxRect) &&Keyboard.GetState().IsKeyDown(Globals.useKey) && beingPressed == false)
-            {
-                beingPressed = true;
-                if (pressed == false)
                 {
-                    pressed = true;
-                    if (buttonType == "red" && mainPlayer.playerHealth > 0)
+                    beingPressed = true;
+                    if (pressed == false)
                     {
-                        mainPlayer.playerHealth--;
-                    }
+                        pressed = true;
+                        if (buttonType == "red" && mainPlayer.playerHealth > 0)
+                        {
+                            mainPlayer.playerHealth--;
+                        }
 
-                    if (buttonType == "green" && mainPlayer.playerHealth < 10)
-                    {
-                        mainPlayer.playerHealth++;
-                    }
-                    timer = gameTime.ElapsedGameTime.TotalMilliseconds;
-
-                }         
-
-            }
-
+                        if (buttonType == "green" && mainPlayer.playerHealth < 10)
+                        {
+                            mainPlayer.playerHealth++;
+                        }
+                        timer = gameTime.ElapsedGameTime.TotalMilliseconds;
+                    }         
+                }
             if (timer > threshold)
             {
                 if (!beingPressed)
@@ -99,16 +97,12 @@ namespace DungeonGame.Entities
             {
                 beingPressed = false;
             }
-
-
-
-
-
         }
 
 
         public override void Draw(SpriteBatch _spriteBatch)
         {
+            // draws the buttons to the screen (including the being presses animation)
             if (pressed)
             {
                 _spriteBatch.Draw(buttonTextureAtlas, buttonRECT, buttonPressed, Color.White);

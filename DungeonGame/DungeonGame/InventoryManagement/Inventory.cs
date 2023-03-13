@@ -70,7 +70,8 @@ namespace DungeonGame.InventoryManagement
 
             invSourceRect = new Rectangle(0, 224, invTextWidth, invTextHeight);                                         // IN TEXTURE
             invTextureVisableSize = new Rectangle(0, 0, (int)(invTextWidth * invsf), (int)(invTextHeight * invsf));     // IN GAME
-            invLayout = new Rectangle(((int)ScreenManager.Instance.Resolution.X / 2) - invTextureVisableSize.Width / 2, ((int)ScreenManager.Instance.Resolution.Y) - (int)(invTextureVisableSize.Height * 1.4), invTextureVisableSize.Width, invTextureVisableSize.Height);
+            invLayout = new Rectangle(((int)ScreenManager.Instance.Resolution.X / 2) - invTextureVisableSize.Width / 2, ((int)ScreenManager.Instance.Resolution.Y) 
+                - (int)(invTextureVisableSize.Height * 1.4), invTextureVisableSize.Width, invTextureVisableSize.Height);
 
             //inv slots
             invSlots = new Rectangle[3, 6];
@@ -79,21 +80,24 @@ namespace DungeonGame.InventoryManagement
                 for (int j = 0; j < 6; j++)
                 {
                     invSlots[i, j] = new Rectangle(invLayout.X + (83 * j) + 15, invLayout.Y + (83 * i) + 12, 70, 70);
-                    invSlots[i, j].X += 2;
-                    invSlots[i, j].Y += 2;
+                    invSlots[i, j].X += 2;  // creates offsets so that the inv slots are
+                    invSlots[i, j].Y += 2;  // well positioned
                     invSlots[i, j].Width-=8;
                     invSlots[i, j].Height-=8;
                 }
             }
 
-            // inv items
+            // inv items ( adds items below to the inventory)
             itemsInInv = new Item[3,6];
             itemsInInv[0,0] = ItemManager.banana;
-            itemsInInv[0,5] = ItemManager.pistol;
-            itemsInInv[2,0] = ItemManager.bazooka;
-            itemsInInv[2,5] = ItemManager.banana;
-            itemsInInv[1,3] = ItemManager.nyanLauncher;
-            itemsInInv[1,2] = ItemManager.nyanLauncher;
+            itemsInInv[0,1] = ItemManager.pistol;
+            itemsInInv[0,2] = ItemManager.bazooka;
+            itemsInInv[0,3] = ItemManager.nyanLauncher;
+            itemsInInv[0,4] = ItemManager.cake;
+            itemsInInv[0,5] = ItemManager.banana;
+
+
+
 
 
 
@@ -104,7 +108,8 @@ namespace DungeonGame.InventoryManagement
 
             hotBarSourceRect = new Rectangle(224, 0, hotBarTextWidth, hotBarTextHight);                                               // IN TEXTURE
             hotBarTextureVisableSize = new Rectangle(0, 0, (int)(hotBarTextWidth * hotBarsf), (int)(hotBarTextHight * hotBarsf));     // IN GAME
-            hotbarLayout = new Rectangle(((int)ScreenManager.Instance.Resolution.X / 2) - hotBarTextureVisableSize.Width / 2, ((int)ScreenManager.Instance.Resolution.Y) - hotBarTextureVisableSize.Height, hotBarTextureVisableSize.Width, hotBarTextureVisableSize.Height);
+            hotbarLayout = new Rectangle(((int)ScreenManager.Instance.Resolution.X / 2) - hotBarTextureVisableSize.Width / 2, ((int)ScreenManager.Instance.Resolution.Y) 
+                - hotBarTextureVisableSize.Height, hotBarTextureVisableSize.Width, hotBarTextureVisableSize.Height);
 
             selectorSourceRect = new Rectangle(224, 64, 64, 64);                    // IN TEXTURE
             selectorPosRect = new Rectangle(hotbarLayout.X, hotbarLayout.Y, (int)(64 * hotBarsf), (int)(64 * hotBarsf));      // IN GAME
@@ -134,6 +139,8 @@ namespace DungeonGame.InventoryManagement
 
         public void Update(GameTime gameTime)
         {
+            // tasks that can  be carried out
+            // on the inventory
             ScrollThroughHotbar();
             switchPlayerItem();
             dropItem();
@@ -149,12 +156,10 @@ namespace DungeonGame.InventoryManagement
             //hot bar casing
             _spriteBatch.Draw(UIAtlas, hotbarLayout, hotBarSourceRect, Color.White);
 
-
             if (invVisable)
             {
                 // inventory casing
                 _spriteBatch.Draw(UIAtlas, invLayout, invSourceRect, Color.White);
-
 
                 for (int i = 0; i < 3; i++)
                 {
@@ -199,6 +204,7 @@ namespace DungeonGame.InventoryManagement
 
         void DrawHotBarWithItems(SpriteBatch _spriteBatch)
         {
+            // this draws the hot bar
             for (int i = 0; i < itemsInHotBar.Length; i++) // HOTBAR
             {
 
@@ -225,9 +231,9 @@ namespace DungeonGame.InventoryManagement
         }
 
         void ScrollThroughHotbar()
-        {
+        {// this handles the logic of the hotbar selector
             MouseState mouse = Mouse.GetState();
-
+            // gets the value of the scroll wheel
             if (mouse.ScrollWheelValue > prevScrollValue)
             {
                 if (selectorPosRect.X > hotbarLayout.X)
@@ -251,14 +257,14 @@ namespace DungeonGame.InventoryManagement
 
 
         void dropItem()
-        {
+        {// removes item from the hotbar
             if (Keyboard.GetState().IsKeyDown(Globals.dropItemKey))
             {
                 itemsInHotBar[currentSlot] = null;
             }
         }
         public void switchPlayerItem()
-        {
+        {// updates the item that the player has selected to appear in the players hand
             GameScreen.MainPlayer.CurrentItemHeld = itemsInHotBar[currentSlot];
         }
 
@@ -266,7 +272,7 @@ namespace DungeonGame.InventoryManagement
         // INCLUDE WHEN MOVING DIS
         bool beingPressed = false;
         void displayInventory()
-        {
+        {// draws the inventory if the inventory key is pressed.
             if (Keyboard.GetState().IsKeyDown(Globals.inventoryKey) && beingPressed == false)
             {
                 beingPressed = true;

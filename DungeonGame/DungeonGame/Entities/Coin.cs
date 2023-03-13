@@ -16,8 +16,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace DungeonGame.Entities
 {
+    // inherits entity
     class Coin : Entity
     {
+        // vars
         Texture2D coinTextureAtlas;
         Rectangle[] coinSourceRect;
 
@@ -42,6 +44,7 @@ namespace DungeonGame.Entities
 
         public override void LoadContent(ContentManager Content)
         {
+            // gets coin texture
             coinTextureAtlas = Content.Load<Texture2D>("Entities/coinTextureAtlaUPDOWNs");
             
             for(int i = 0; i < coinSourceRect.Length; i++)
@@ -133,10 +136,12 @@ namespace DungeonGame.Entities
 
         public override void Draw(SpriteBatch _spriteBatch)
         {
+            // draws coin
             _spriteBatch.Draw(coinTextureAtlas, coinPos, coinSourceRect[currentFrame], Color.White);
 
             if (GameScreen.developerView)
             {
+                // shows coins hitbox
                 _spriteBatch.Draw(DevTexturesManger.Instance.whiteBox1px, coinPos, Color.Aquamarine);
             }
             

@@ -18,7 +18,7 @@ namespace DungeonGame.ScreenManagement.Screens
 
         SuperOverlay AccGameOverlay, AccAllOverlay;
         
-
+        // Sets up the singleton class 
         public static OverlayManager Instance
         {
             get
@@ -30,7 +30,7 @@ namespace DungeonGame.ScreenManagement.Screens
         }
 
         public void LoadContent(ContentManager content)
-        {
+        {// creates the other overlays
             AccGameOverlay = new GameOverlay();
             AccAllOverlay = new AllOverlay();
 
@@ -39,7 +39,7 @@ namespace DungeonGame.ScreenManagement.Screens
         }
 
         public void Update(GameTime gameTime)
-        {
+        {// updates all of the overlays
             AccGameOverlay.Update(gameTime);
             AccAllOverlay.Update(gameTime);
         }
@@ -48,7 +48,7 @@ namespace DungeonGame.ScreenManagement.Screens
         {
             _spriteBatch.Begin();
             if(ScreenManager.Instance.currentScreen == ScreenManager.Instance.gameScreen)
-            {
+            {// draws the overlays to the screen
                 AccGameOverlay.Draw(_spriteBatch);
             }
 

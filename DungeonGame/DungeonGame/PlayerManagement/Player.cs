@@ -19,7 +19,7 @@ namespace DungeonGame.PlayerManagement
 {
     public class Player
     {
-        // PLAYER
+        // PLAYER vars
         private Texture2D playerTileSet;
         public Vector2 playerPosition, playerPositionORIGIN;
         public Rectangle playerRect;
@@ -32,7 +32,7 @@ namespace DungeonGame.PlayerManagement
         public int playerHealth;
 
 
-        // PLAYER COLLISIONS
+        // PLAYER COLLISIONS vars
         public Rectangle playerCollisionBoxRect;
         private Texture2D playerCollisionBoxTexture;
 
@@ -46,30 +46,28 @@ namespace DungeonGame.PlayerManagement
         private Color leftCOLOR;
         private Color rightCOLOR;
 
-        // ANIMATION
+        // ANIMATION vars
         private float timer;
         private int threshold;
         Rectangle[] sourceRectangles;
         byte prevAnimationIndex;
         byte currAnimationIndex;
 
-        //ITEMS
+        //ITEMS vars
 
         public Item CurrentItemHeld = ItemManager.pistol;
 
 
-        // MAP
+        // MAP vars
         char[,] visableMap;
 
-        // MISC
+        // MISC vars
         Texture2D redNode;
         Texture2D whitePixel;
 
 
         public Player()
         {
-
-
         }
 
         public Rectangle HitBox
@@ -79,13 +77,14 @@ namespace DungeonGame.PlayerManagement
 
         public void LoadContent(ContentManager Content)
         {
+            // loads the texture atlas for the player
             sourceRectangles = new Rectangle[5];
             playerTileSet = Content.Load<Texture2D>("PlayerTextures/redRectTextureAtlas");
             //playerPosition = new Vector2((ScreenManager.Instance.Resolution.X / 2) - 16, (ScreenManager.Instance.Resolution.Y / 2) - 16);
             playerPosition = playerStartPos();
             playerRect = new Rectangle((int)playerPosition.X, (int)playerPosition.Y, playerWidth, playerHeight);
             playerVelocity = 3f;
-
+            // loads the texture of the hitbox for the player
             playerCollisionBoxTexture = Content.Load<Texture2D>("DevAidTextures/blueBox2px");
             playerCollisionBoxRect = playerRect;
 
@@ -104,12 +103,13 @@ namespace DungeonGame.PlayerManagement
 
         Vector2 playerStartPos()
         {
+            // spawns the player at the designated spawn point on the map
             TileSearch ts = new TileSearch();
             List<PositionOnMap> SpawnPos = ts.ReturnLocationsOfTilesFromBackground('@');
             PositionOnMap newPos;
 
             try
-            {
+            {   // VALIDATION for the players location
                 newPos = SpawnPos.ElementAt(0);
                 return new Vector2(newPos.Col * 32, newPos.Row * 32 - 16);
             }
@@ -123,7 +123,7 @@ namespace DungeonGame.PlayerManagement
         }
 
         bool PlayerHasCollided(char[,] map, Rectangle playerSIDE)
-        {
+        {// player collisions
 
             for (int i = 0; i < ScreenManager.MapDimentions.Y; i++) // 30
             {
@@ -147,17 +147,23 @@ namespace DungeonGame.PlayerManagement
 
         public void Update(GameTime gameTime)
         {
-
+            // the player sprite moves as they walk 
+            // they also have an idle state
+            // thats what this Animate(gT) refers to 
             Animate(gameTime);
             PlayerMoving = false;
             visableMap = ScreenManager.visibleMAP;
-            
+            // draws player hitbos
             DrawPlayerHitBox(playerTOP, playerBOTTOM, playerLEFT, playerRIGHT);
 
-
+            // The collisions are programed so that if the player has clicked the button to move
+            // and the player is currently not colliding with anything they can move in that direction
+            // this means that if the player is colliding in say a corner with 2 side
+            // they cant move in those sides' directions anymore
+            // so they have to move in the other available directions to move out of being stuck.
             if (Keyboard.GetState().IsKeyDown(Globals.upKey) && !PlayerHasCollided(visableMap, playerTOP))
             {
-
+                // move the player with constant velocity
                 playerPosition.Y -= playerVelocity;
                 sourceRectangles = GetSourceRects("Back");
                 PlayerMoving = true;
@@ -186,16 +192,17 @@ namespace DungeonGame.PlayerManagement
                 PlayerMoving = true;
             }
 
-
+            // sets the origin of the player to the center of its texture
             playerPositionORIGIN = playerPosition + new Vector2(16, 24);
 
 
             if (!PlayerMoving)
-            {
+            {   // if the player is not moving it player the idle animation
                 sourceRectangles = GetSourceRects("Idle");
             }
             if (Keyboard.GetState().IsKeyDown(Globals.sprintKey))
-            {
+            {   // if the player holds the sprint button the players
+                // velocity increases
                 playerVelocity = 7f;
             }
             else
@@ -204,7 +211,7 @@ namespace DungeonGame.PlayerManagement
             }
 
 
-
+            // this makes sure that the players hitbox moves along with the player
             playerRect.X = (int)playerPosition.X;
             playerRect.Y = (int)playerPosition.Y;
             playerCollisionBoxRect = playerRect;
@@ -218,7 +225,7 @@ namespace DungeonGame.PlayerManagement
 
 
         }
-
+        // draws players hibox
         void DrawPlayerHitBox(Rectangle playerTOP, Rectangle playerBOTTOM, Rectangle playerLEFT, Rectangle playerRIGHT)
         {
             // Retrieving the map.
@@ -250,12 +257,13 @@ namespace DungeonGame.PlayerManagement
         void MovingOverTerrain()
         {
             TileSearch ts = new TileSearch();
-
+            // retrieves the locations of "rough terrain" tiles in this case water
             List<PositionOnMap> waterPositions = ts.ReturnLocationsOfTilesFromBackground('W');
             foreach(PositionOnMap pom in waterPositions)
             {
                 if(playerRect.Intersects(new Rectangle((int)pom.Row * 32, (int)pom.Col * 32, 32, 32)))
                 {
+                    // if the player is moving over rough terrain they slow down
                     playerVelocity=2f;
                 }
             }
@@ -265,7 +273,7 @@ namespace DungeonGame.PlayerManagement
 
 
         public void Draw(SpriteBatch _spriteBatch)
-        {
+        {// draws the player
             _spriteBatch.Draw(playerTileSet, playerRect, sourceRectangles[currAnimationIndex], Color.White);
             //_spriteBatch.Draw(playerCollisionBoxTexture, playerRect, Color.White);
 
@@ -287,7 +295,7 @@ namespace DungeonGame.PlayerManagement
 
 
             if (GameScreen.developerView)
-            {
+            {   // displays the hitboxes if the user turns on dev mode
                 _spriteBatch.Draw(DevTexturesManger.Instance.whiteBox1px, playerRect, Color.BlueViolet);
 
                 _spriteBatch.Draw(whitePixel, playerTOP, topCOLOR); //TOP
@@ -303,7 +311,7 @@ namespace DungeonGame.PlayerManagement
 
 
         }
-
+        // animates the player
         void AnimateOri(GameTime gameTime)
         {
             if (timer > threshold)
@@ -331,6 +339,7 @@ namespace DungeonGame.PlayerManagement
                 timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
         }
+        // animates the player
         bool forward = true;
         void Animate(GameTime gameTime)
         {
@@ -362,31 +371,31 @@ namespace DungeonGame.PlayerManagement
             }
         }
 
-
+        // retrieves the source rectangles for the textures used for the animations of the player
         Rectangle[] GetSourceRects(string wayFacing)
             {
-                Rectangle[] Idle = new Rectangle[5];
+                Rectangle[] Idle = new Rectangle[5]; // IDLE ANIMATION
                 Idle[0] = new Rectangle(0, 0, playerWidth, playerHeight);
                 Idle[1] = new Rectangle(32, 0, playerWidth, playerHeight);
                 Idle[2] = new Rectangle(64, 0, playerWidth, playerHeight);
                 Idle[3] = new Rectangle(96, 0, playerWidth, playerHeight);
                 Idle[4] = new Rectangle(128, 0, playerWidth, playerHeight);
 
-                Rectangle[] Left = new Rectangle[5];
+                Rectangle[] Left = new Rectangle[5]; // MOVING LEFT ANIMATION
                 Left[0] = new Rectangle(0, 48, playerWidth, playerHeight);
                 Left[1] = new Rectangle(32, 48, playerWidth, playerHeight);
                 Left[2] = new Rectangle(64, 48, playerWidth, playerHeight);
                 Left[3] = new Rectangle(96, 48, playerWidth, playerHeight);
                 Left[4] = new Rectangle(128, 48, playerWidth, playerHeight);
 
-                Rectangle[] Right = new Rectangle[5];
+                Rectangle[] Right = new Rectangle[5]; //MOVING RIGHT ANIMATION
                 Right[0] = new Rectangle(0, 96, playerWidth, playerHeight);
                 Right[1] = new Rectangle(32, 96, playerWidth, playerHeight);
                 Right[2] = new Rectangle(64, 96, playerWidth, playerHeight);
                 Right[3] = new Rectangle(96, 96, playerWidth, playerHeight);
                 Right[4] = new Rectangle(128, 96, playerWidth, playerHeight);
 
-                Rectangle[] Back = new Rectangle[5];
+                Rectangle[] Back = new Rectangle[5]; // MOVING BACK/UP ANIMATION
                 Back[0] = new Rectangle(0, 144, playerWidth, playerHeight);
                 Back[1] = new Rectangle(32, 144, playerWidth, playerHeight);
                 Back[2] = new Rectangle(64, 144, playerWidth, playerHeight);

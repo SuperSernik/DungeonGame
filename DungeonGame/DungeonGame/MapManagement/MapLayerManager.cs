@@ -3,12 +3,16 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace DungeonGame.MapManagement
-{
+{   // This is where all of the default maps are stored in the game code 
+    // as well as links to the maps that are stored in the file as txt file
+    // basically this class servers as a giant map distributor for the draw background
+    // class to handle.
     class MapLayerManager
     {
 
         private static MapLayerManager instance;
         public ContentManager Content { private set; get; }
+        // singleton class as we wont need more duplicates of the same maps ever
         public static MapLayerManager Instance
         {
             get
@@ -23,17 +27,16 @@ namespace DungeonGame.MapManagement
 
         public virtual void LoadContent(ContentManager Content)
         {
+            // test of generating a map from scratch using code
             createMapThree();
-
-            
         }
 
         public MapLayerManager()
-        {
+        {// reads maps from file 
             readMapsFromFile();
         }
 
-
+        // stores map
         private char[,] storedMapOne = new char[30, 50] // This array is how the map is stored in the game, each letter represents a tile.
             {
                 {'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R','R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R','R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R'},
@@ -106,6 +109,7 @@ namespace DungeonGame.MapManagement
 
 
         private char[,] storedMapThree = new char[30, 50];
+        // creates a blanc canvas map
         private void createMapThree()
         {
             for (int i = 0; i < 30; i++) //rows
@@ -186,7 +190,7 @@ namespace DungeonGame.MapManagement
         private void readMapsFromFile()
         {
             FileManager fm = new FileManager();
-
+            // reads the maps from the files that are passed in as parameters
             fileMapOne = fm.ReadMapFile("mapOne.txt");
             fileMapTwo = fm.ReadMapFile("mapTwo.txt");
             fileMapThree = fm.ReadMapFile("mapThree.txt");
@@ -197,6 +201,9 @@ namespace DungeonGame.MapManagement
 
         }
 
+        // getters for all of the maps avaiable.
+        // this is important as this is using encapsulation
+        // meaning that maps cant be altered by other classes by accident.
         public char[,] FMapOne
         {
             get { return fileMapOne; }

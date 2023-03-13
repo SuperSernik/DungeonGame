@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace DungeonGame.Entities
 {
+    // abstract class to name functions that will be used 
+    // with other entities.
     class Entity
     {
 

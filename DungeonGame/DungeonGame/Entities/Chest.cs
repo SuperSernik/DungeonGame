@@ -60,7 +60,7 @@ namespace DungeonGame.Entities
         public override void Update(GameTime gameTime, Player mainPlayer)
         {
             bool chestIsOpen = false;
-            
+            // updates chest and checks if its open or not
 
             if (chestRectangle.Intersects(mainPlayer.playerCollisionBoxRect) && Keyboard.GetState().IsKeyDown(Globals.useKey))
             {
@@ -84,6 +84,7 @@ namespace DungeonGame.Entities
                         {
                             if (Inventory.itemsInInv[i,j] == null && addedItemFromThisChest == false)
                             {
+                                // randomly rolls an item from the chest to give to the player
                                 Random rn = new Random();
                                 Inventory.itemsInInv[i,j] = ItemManager.listOfAllItems[rn.Next(ItemManager.listOfAllItems.Count)];
                                 addedItemFromThisChest = true;

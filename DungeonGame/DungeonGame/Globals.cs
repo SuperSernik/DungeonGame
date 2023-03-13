@@ -1,17 +1,30 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+﻿// All of the "usings" that are used in this game.
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using DungeonGame.BackendDev;
+using DungeonGame.InventoryManagement;
+using DungeonGame.PlayerManagement;
+using DungeonGame.ScreenManagement.Screens;
+using DungeonGame.ScreenManagement.ScreenStats;
+using DungeonGame.ItemManagement;
+using DungeonGame.ItemManagement.Items;
+using DungeonGame.ItemManagement.NonItemItems;
+
 
 namespace DungeonGame
 {
     public class Globals
     {
+        // These are static values that dont change throughout the program 
+        // therefore i have this globals class to keep them all 
+        // in one place.
         public static SpriteBatch _spriteBatch { get; set; }
         public static GraphicsDeviceManager _graphics { get; set; }
         public static ContentManager _content { get; set; }

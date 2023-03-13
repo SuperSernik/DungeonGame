@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DungeonGame.ScreenManagement.Overlays
-{
-    public class SuperOverlay
+{// abstract super class for all sub classes to inherit from
+    public abstract class SuperOverlay
     {
 
         public virtual void LoadContent(ContentManager content) { }

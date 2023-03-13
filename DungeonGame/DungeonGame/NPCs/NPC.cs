@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace DungeonGame.NPCs
 {
-    public class NPC
-    {
+    public abstract class NPC
+    {// this is an abstract super class for all NPCs
         public string type;
         public bool remove;
         public virtual void LoadContent(ContentManager Content) { }

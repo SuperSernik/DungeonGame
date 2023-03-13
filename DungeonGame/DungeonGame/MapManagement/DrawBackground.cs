@@ -14,7 +14,8 @@ using System.ComponentModel;
 namespace DungeonGame.MapManagement
 {
     class DrawBackground
-    {
+    {   
+        // TILE ID DICTIONARY OF CONSTANTS
         const char DEFAULT_TEXTURE = ' ';
         const char EMPTY_TEXTURE = '#';
         const char SPAWN_TILE = '@';
@@ -46,7 +47,7 @@ namespace DungeonGame.MapManagement
         }
 
         public void LoadContent(ContentManager Content)
-        {  
+        {  // loads tile atlas
             tileTextureTileMap = Content.Load<Texture2D>("TileMaps/TileMapBack");
 
             //tilePos = Vector2.Zero;
@@ -93,7 +94,7 @@ namespace DungeonGame.MapManagement
                     tile = map[k, l];
 
                     switch (tile)
-                    {                    
+                    {                    // draws the correct texture at the correct location
                         case WALL:
                             _spriteBatch.Draw(tileTextureTileMap, CreateRectangle(tilePos, tileSize, k, l), GetTileSourceRectangle(Convert.ToString(WALL)), Color.White); 
                             break;
@@ -157,7 +158,8 @@ namespace DungeonGame.MapManagement
                 }
             }
         }
-
+        // this is a seperate fucntion ive written that retrieves the location of the tiles on 
+        // the tile map from a file but it turned out to be incredibly inneficient and slow.
         Rectangle GetTileSourceRectangleFILE(string tile)
         {
             FileManager fm = new FileManager();
@@ -183,7 +185,7 @@ namespace DungeonGame.MapManagement
             if (tile != null)
             {
                 switch (tile)
-                {
+                {// returns the location of the tile texture on the tile atlas
                     
                     case "R":
                         return new Rectangle(32, 0, tileSize, tileSize);        //  WALLS

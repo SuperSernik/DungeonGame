@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using System.Reflection.Metadata;
 
 namespace DungeonGame.ScreenManagement
-{
+{// superclass for other classes to inherit from 
     public class UserScreen
     {
         protected ContentManager Content;
@@ -32,18 +32,9 @@ namespace DungeonGame.ScreenManagement
         {
             Content.Unload();
         }
-        public virtual void Update(GameTime gameTime)
-        {
-
-        }
-        public virtual void Update(GameTime gameTime, Game1 game1)
-        {
-
-        }
-        public virtual void Draw(SpriteBatch _spriteBatch)
-        {
-
-        }
+        public virtual void Update(GameTime gameTime) { }
+        public virtual void Update(GameTime gameTime, Game1 game1) { }
+        public virtual void Draw(SpriteBatch _spriteBatch) { }
 
 
 

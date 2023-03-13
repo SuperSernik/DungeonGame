@@ -14,7 +14,7 @@ namespace DungeonGame.ItemManagement.Items
 {
     public class Food : Item
     {
-
+        // vars
         Vector2 position;
         Texture2D textureAtlas;
 
@@ -25,8 +25,6 @@ namespace DungeonGame.ItemManagement.Items
         Vector2 foodSize;
 
 
-
-
         public Food(string newItemType, string newItemName) : base(newItemType, newItemName)
         {
 
@@ -34,20 +32,21 @@ namespace DungeonGame.ItemManagement.Items
 
         public override void LoadContent(ContentManager content)
         {
+            // loads texture atlas
             textureAtlas = content.Load<Texture2D>("Items/foodsAtlas");
             setFoodData(this.itemName, 32, 32);
         }
 
         public Rectangle SourceRect
-        {
+        {// the source rect is the position of the texture in the texture atlas
             get { return sourceRect; }
         }
 
 
         public override void Update(GameTime gameTime, Vector2 pos)
-        {
-            position = new Vector2(ScreenManager.Instance.Resolution.X / 2, ScreenManager.Instance.Resolution.Y / 2 + 15); // the 10 is displacement from the center of the screen
-
+        {// the 10 is displacement from the center of the screen
+            position = new Vector2(ScreenManager.Instance.Resolution.X / 2, ScreenManager.Instance.Resolution.Y / 2 + 15); 
+            // updates position of the item on the screen
             MouseState mouse = Mouse.GetState();
             distance.X = mouse.X - position.X;
             distance.Y = mouse.Y - position.Y;
@@ -56,7 +55,7 @@ namespace DungeonGame.ItemManagement.Items
 
         }
 
-
+        // draw the item
         public override void Draw(SpriteBatch _spriteBatch)
         {
             // DISPLAY ITEM IN THE MIDDLE
@@ -83,7 +82,8 @@ namespace DungeonGame.ItemManagement.Items
         {
 
             switch (weapon)
-            {
+            {// this switch case returns the correct texture from the atlas depending on 
+                // what 
                 case "cake":
                     foodDisplaySize = new Vector2(itemWidthInGame, itemHeightInGame);            // IN GAME
                     foodSize = new Vector2(64, 64);                   // ON TILEMAP

@@ -11,9 +11,9 @@ using DungeonGame.BackendDev;
 using DungeonGame.ScreenManagement.Screens;
 
 namespace DungeonGame.NPCs.Characters
-{
+{// villager template class
     class Villager : NPC
-    {
+    {// vars
         Texture2D villagerTextureAtlas;
         Vector2 villagerPostion;
         Rectangle villagerRectangle;
@@ -60,7 +60,7 @@ namespace DungeonGame.NPCs.Characters
             textureSourcRects[3] = new Rectangle(96, 0, 32, 48);
 
 
-
+            //creates a default path for npc to follow
             path = new List<PositionOnMap>();
             path.Add(new PositionOnMap(1, 10));
             path.Add(new PositionOnMap(7, 20));
@@ -132,6 +132,7 @@ namespace DungeonGame.NPCs.Characters
         }
         Vector2 getNewTarget()
         {
+            // chooses a new tile for the npc to walk to.
             Random rn = new Random();
             int x = rn.Next(50);
             int y = rn.Next(30);
@@ -150,7 +151,7 @@ namespace DungeonGame.NPCs.Characters
         }
 
         public override void Draw(SpriteBatch _spriteBatch)
-        {
+        {// draws the villager
             _spriteBatch.Draw(villagerTextureAtlas, villagerRectangle, textureSourcRects[0], Color.White);
 
             _spriteBatch.Draw(DevTexturesManger.Instance.redNode2px, target, Color.White);

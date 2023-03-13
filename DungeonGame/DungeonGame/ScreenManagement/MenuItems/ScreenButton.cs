@@ -12,6 +12,7 @@ namespace DungeonGame.ScreenManagement.MenuItems
 {
     class ScreenButton
     {
+        // vars 
         Vector2 buttonPos;
         string buttonTEXT;
         public string buttonType;
@@ -37,6 +38,7 @@ namespace DungeonGame.ScreenManagement.MenuItems
 
         string btnDesign;
 
+        // 2 different constructors for 2 different button variations
         public ScreenButton(Vector2 Postion, string text, string type, string NEWbtnDesgn)
         {
             buttonPos = Postion;
@@ -54,24 +56,25 @@ namespace DungeonGame.ScreenManagement.MenuItems
         }
 
         public void LoadContent(ContentManager Content)
-        {
+        {// loads in the texture of the button
             buttonTextureAtlas = Content.Load<Texture2D>("MenuScreens/MenuItems/buttonTextureAtlas");
             Arial24 = Content.Load<SpriteFont>("Fonts/Arial24");
 
             if(btnDesign == "boxOne")
-            {
+            {// sets up the parameters for a standard box button
                 btnSourceRect = new Rectangle(0, 0, 192, 80);
                 buttonRect = new Rectangle((int)buttonPos.X, (int)buttonPos.Y, (int)(btnSourceRect.Width * 1.5), (int)(btnSourceRect.Height * 1.5));
 
 
             }
             if (btnDesign == "cross")
-            {
+            {// sets up the parameters for an exit button
                 btnSourceRect = new Rectangle(192, 0, 80, 80);
                 buttonRect = new Rectangle((int)buttonPos.X, (int)buttonPos.Y, (int)(btnSourceRect.Width * 1), (int)(btnSourceRect.Height * 1));
 
             }
 
+            // makes sure that the text is well positioned on the screen
             textPos = new Vector2(((buttonRect.X + (buttonRect.Width / 2))) - (buttonTEXT.Length/2) * 16, (buttonRect.Y + (buttonRect.Height / 2)) -15);
 
             btnPressed = false;
@@ -82,7 +85,7 @@ namespace DungeonGame.ScreenManagement.MenuItems
         {
             mouse = Mouse.GetState();
             mBtnState = Mouse.GetState();
-
+            // this changes the color of the button as the user hovers over the button 
             if (buttonRect.Contains(new Rectangle((int)mouse.Position.X, (int)mouse.Position.Y, 1, 1)))
             {
                 btnHoveredOver = true;
@@ -91,7 +94,7 @@ namespace DungeonGame.ScreenManagement.MenuItems
             {
                 btnHoveredOver = false;
             }
-
+            // this checks for the button being pressed.
             if(buttonRect.Contains(new Rectangle((int)mouse.Position.X, (int)mouse.Position.Y, 1, 1)) && (mouse.LeftButton == ButtonState.Pressed))
             {
                 btnPressed = true;
@@ -107,19 +110,19 @@ namespace DungeonGame.ScreenManagement.MenuItems
         {
 
             if (!btnHoveredOver)
-            {
-                _spriteBatch.Draw(buttonTextureAtlas, buttonRect, btnSourceRect, Color.White);
-                _spriteBatch.DrawString(Arial24, buttonTEXT, textPos, Color.Wheat);
+            {// draws the button to the screen
+                _spriteBatch.Draw(buttonTextureAtlas, buttonRect, btnSourceRect, Color.White); // button    
+                _spriteBatch.DrawString(Arial24, buttonTEXT, textPos, Color.Wheat);             // text on the button
             }
             else if (btnPressed)
             {
-                _spriteBatch.Draw(buttonTextureAtlas, buttonRect, btnSourceRect, Color.Red);
-                _spriteBatch.DrawString(Arial24, buttonTEXT, textPos, Color.Red);
+                _spriteBatch.Draw(buttonTextureAtlas, buttonRect, btnSourceRect, Color.Red);// button    
+                _spriteBatch.DrawString(Arial24, buttonTEXT, textPos, Color.Red);            // text on the button
             }
             else if (btnHoveredOver)
             {
-                _spriteBatch.Draw(buttonTextureAtlas, buttonRect, btnSourceRect, new Color(Color.Blue, 1f));
-                _spriteBatch.DrawString(Arial24, buttonTEXT, textPos, new Color(Color.Blue, 1f));
+                _spriteBatch.Draw(buttonTextureAtlas, buttonRect, btnSourceRect, new Color(Color.Blue, 1f));// button    
+                _spriteBatch.DrawString(Arial24, buttonTEXT, textPos, new Color(Color.Blue, 1f));            // text on the button
             }
 
 

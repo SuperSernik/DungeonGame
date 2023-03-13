@@ -11,7 +11,7 @@ namespace DungeonGame.BackendDev
     public class Logic
     {
 
-        
+        // vars
         bool value = false;
         bool beingPressed = false;
         bool output;
@@ -21,7 +21,7 @@ namespace DungeonGame.BackendDev
             output = originalValue;
         }
 
-        
+        // acts as a reusable logic gate
         public bool ToggleByKey(Keys key)
         {
             

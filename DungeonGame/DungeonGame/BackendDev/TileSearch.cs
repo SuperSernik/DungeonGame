@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace DungeonGame.BackendDev
 {
+    // these are usefule for when i want to search for a tile in a map 
+    // or return all of the tiles in a location etc.
     public class TileSearch
     {
         int row, col;

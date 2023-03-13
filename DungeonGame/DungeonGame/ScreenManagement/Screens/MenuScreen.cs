@@ -11,10 +11,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace DungeonGame.ScreenManagement.Screens
-{
-    public class MenuScreen : UserScreen
+{// this class creates the menu screen of the game.
+    public class MenuScreen : UserScreen // inherits userscreen
     {
-
+        // vars
         SpriteFont EngOldFont110;
         Texture2D Menu;
         Rectangle menuRectange;
@@ -30,25 +30,25 @@ namespace DungeonGame.ScreenManagement.Screens
             
         List<ScreenButton> btns = new List<ScreenButton>();
 
-        
-
         public MenuScreen()
-        {
+        {// sets the screen type to menu so that the screen manager can 
+            // distinguish between screens
             screenType = "menu";
         }
 
         public override void LoadContent(ContentManager Content)
         {
+            // loads content for all of the fonts and textures.
             base.LoadContent(Content); 
             EngOldFont110 = Content.Load<SpriteFont>("Fonts/EngOldFont110");
             Menu = Content.Load<Texture2D>("MenuScreens/VineBack");
             menuRectange = new Rectangle(0, 0, (int)ScreenManager.Instance.Resolution.X, (int)ScreenManager.Instance.Resolution.Y);
             player = Content.Load<Texture2D>("MiscImages/Jake320x480");
-
+            
             playerPos = new Rectangle(2 * 32, 4 * 32, 500, 780);
 
             titleRect = new Vector2(19 * 32, 2 * 32 - 16);
-
+            // centers all of the buttons on the screen of the menu
             playButton = new ScreenButton(new Vector2(800, 300), "Play Game", "play", "boxOne");
             btns.Add(playButton);
             quitButton = new ScreenButton(new Vector2(800, 600), "Quit", "quit", "boxOne");
@@ -76,7 +76,7 @@ namespace DungeonGame.ScreenManagement.Screens
             {
                 button.Update(gameTime);
 
-
+                // checks for the buttons on the menu to be pressed.
                 if (button.buttonType == "play" && button.btnPressed == true)
                 {
                     switchToScreen = "gameScreen";
@@ -99,6 +99,7 @@ namespace DungeonGame.ScreenManagement.Screens
 
         public override void Draw(SpriteBatch _spriteBatch)
         {
+            // draws all of the items on the menu screen
             _spriteBatch.Begin();
             base.Draw(_spriteBatch);
             _spriteBatch.Draw(Menu, menuRectange, Color.White);

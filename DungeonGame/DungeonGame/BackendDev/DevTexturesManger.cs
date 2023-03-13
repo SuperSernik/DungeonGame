@@ -16,6 +16,7 @@ namespace DungeonGame.BackendDev
         public SpriteBatch _spriteBatch;
         public static DevTexturesManger Instance
         {
+            // creates singleton class getter
             get
             {
                 if (instance == null)
@@ -24,11 +25,14 @@ namespace DungeonGame.BackendDev
             }
         }
 
+        // creates variables for often used textures 
+        // (helpful with debugging)
         public Texture2D redNode2px, blueBox2px, blueBox1px, whiteBox1px;
         
 
         public void LoadContent(ContentManager Content)
         {
+            // loads the textures into memory
             redNode2px = Content.Load<Texture2D>("DevAidTextures/redNode2px");
             blueBox2px = Content.Load<Texture2D>("DevAidTextures/blueBox2px");
             blueBox1px = Content.Load<Texture2D>("DevAidTextures/blueBox1px");

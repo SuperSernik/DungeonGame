@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DungeonGame.ScreenManagement.Screens
 {
-    public class DisplayControlsScreen : UserScreen
+    public class DisplayControlsScreen : UserScreen // inherits userScreen
     {
 
         Texture2D background;
@@ -29,12 +29,13 @@ namespace DungeonGame.ScreenManagement.Screens
 
         public override void LoadContent(ContentManager Content)
         {
+            // loads the texture for the background texture
             background = Content.Load<Texture2D>("MenuScreens/VineBack");
             backgroundRect = new Rectangle(0, 0, (int)ScreenManager.Instance.Resolution.X, (int)ScreenManager.Instance.Resolution.Y);
             backButton = new ScreenButton(new Vector2(50, 50), "backToMenu", "cross");
             backButton.LoadContent(Content);
             ScreenBtns.Add(backButton);
-
+            // loads the texture that displays the controls
             controlsLayout = Content.Load<Texture2D>("UserInterface/controls");
             controlsLayoutRect = new Rectangle((int)ScreenManager.Instance.Resolution.X/2 - controlsLayout.Width /2,
                 (int)ScreenManager.Instance.Resolution.Y /2- controlsLayout.Height / 2,
@@ -46,7 +47,7 @@ namespace DungeonGame.ScreenManagement.Screens
             foreach (ScreenButton button in ScreenBtns)
             {
                 button.Update(gameTime);
-
+                // checks if the button to go back has been pressed
                 if (button.buttonType == "backToMenu" && button.btnPressed == true)
                 {
                     switchToScreen = "menu";
@@ -55,6 +56,7 @@ namespace DungeonGame.ScreenManagement.Screens
         }
         public override void Draw(SpriteBatch _spriteBatch)
         {
+            // draws all of the items in the controls screen to the screen
             _spriteBatch.Begin();
             _spriteBatch.Draw(background, backgroundRect, Color.White);
 

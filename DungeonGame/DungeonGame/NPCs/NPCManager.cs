@@ -14,29 +14,30 @@ namespace DungeonGame.NPCs
 {
     class NPCManager
     {
+        // NPC list
         List<NPC> NPCs = new List<NPC>();
         public NPCManager()
         {
         }
         public void LoadContent(ContentManager Content)
-        {
+        {   // adds zombies and villagers to the NPCs list
             addNPCsToList(CreateZombies(Content, GameScreen.numberOfZombies));
             addNPCsToList(CreateVillagers(Content, GameScreen.numberOfVillagers));
         }
         public void Update(GameTime gameTime)
         {
             foreach (NPC npc in NPCs)
-            {
+            {   // updates all of the npc in the list
                 npc.Update(gameTime, GameScreen.MainPlayer.HitBox);
                 npc.Update(gameTime);
             }
         }
         public void Draw(SpriteBatch _spriteBatch)
-        {
+        {// draws all of the NPCs in the list
             foreach (NPC npc in NPCs) { npc.Draw(_spriteBatch); }
         }
         void addNPCsToList(List<NPC> listOfNPCs)
-        {
+        {// adds a list of npcs to the main NPCs list
             foreach (NPC npc in listOfNPCs)
             {
                 NPCs.Add(npc);

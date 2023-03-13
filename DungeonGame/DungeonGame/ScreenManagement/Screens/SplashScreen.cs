@@ -13,10 +13,11 @@ namespace DungeonGame.ScreenManagement.Screens
 {
     public class SplashScreen : UserScreen
     {
+        // vars - textures
         Texture2D image;
         Rectangle imageRect;
         Vector2 origin;
-
+        // vars - animation
         Texture2D faderPxl;
         Rectangle faderRect;
         double faderOpacity;
@@ -39,12 +40,13 @@ namespace DungeonGame.ScreenManagement.Screens
         }
         public override void LoadContent(ContentManager Content)
         {
+            // loads the texture for the splashscreen
             base.LoadContent(Content);
             image = Content.Load<Texture2D>("SplashScreens/DamoDevRed");
             origin = new Vector2(image.Width / 2, image.Height / 2);
             imageRect = new Rectangle((int)(ScreenManager.Instance.Resolution.X / 2) - (int)origin.X,
                 (int)(ScreenManager.Instance.Resolution.Y / 2) - (int)origin.Y, image.Width, image.Height);
-
+            // loads content and sets values for the transition animation
             faderPxl = Content.Load<Texture2D>("Fx/BlackPixel");
             faderRect = new Rectangle(0, 0, (int)ScreenManager.Instance.Resolution.X, (int)ScreenManager.Instance.Resolution.Y);
             faderOpacity = 2d;
@@ -60,7 +62,7 @@ namespace DungeonGame.ScreenManagement.Screens
             base.UnloadContent();
         }
         public override void Update(GameTime gameTime)
-        {
+        {// on the sign fades out then switch to the next screen
             if (faderOpacity > -2)
             {
                 faderOpacity -= fadeSpeed + (double)gameTime.ElapsedGameTime.TotalSeconds;
@@ -77,7 +79,7 @@ namespace DungeonGame.ScreenManagement.Screens
         }
 
         public override void Draw(SpriteBatch _spriteBatch)
-        {
+        {// draws the textures to the screen.
             _spriteBatch.Begin();
             base.Draw(_spriteBatch);
             _spriteBatch.Draw(image, imageRect, Color.White);

@@ -13,7 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace DungeonGame.BackendDev
-{
+{// this class controls the cursor of the mouse, when it changes etc.
     class MouseManager
     {
         Texture2D mouseTexture;
@@ -35,6 +35,7 @@ namespace DungeonGame.BackendDev
 
         public void LoadContent(ContentManager Content)
         {
+            //loads in cursor textures
             mouseTexture = Content.Load<Texture2D>("Cursors/Cursor");
             sourceRectNOTPressed = new Rectangle(0, 0, 32, 32);
             sourceRectPressed = new Rectangle(32, 0, 32, 32);
@@ -47,6 +48,8 @@ namespace DungeonGame.BackendDev
         }
         public void Update(GameTime gameTime)
         {
+            // updates the poistion of the cursor so that it matches
+            // with the real cursor
             MouseState m = Mouse.GetState();
             mousePosition.X = m.Position.X;
             mousePosition.Y = m.Position.Y;
@@ -69,7 +72,7 @@ namespace DungeonGame.BackendDev
         {
             if(ScreenManager.Instance.currentScreen == ScreenManager.Instance.gameScreen)
             {
-                ScreenManager.Instance.IsMOUSE_VISABLE = false; // CHANGE IF U WANT TO SEE MOUSE ON SCREEN IN GAME MODE
+                ScreenManager.Instance.IsMOUSE_VISABLE = false; // CHANGE IF U WANT TO SEE MOUSE ON SCREEN IN GAME MODE *removes cursor
 
                 if (!Inventory.invVisable)
                 {
@@ -102,6 +105,7 @@ namespace DungeonGame.BackendDev
 
             if (GameScreen.developerView)
             {
+                // draws cursor if its supposed to be visable.
                 _spriteBatch.Draw(DevTexturesManger.Instance.whiteBox1px, mouseRect, Color.Green);
             }
 

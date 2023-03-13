@@ -1,5 +1,5 @@
 ﻿namespace DungeonGame.BackendDev
-{
+{// i created my own type to store the row and column of a certain tile
     public class PositionOnMap
     {
         private int row, col;

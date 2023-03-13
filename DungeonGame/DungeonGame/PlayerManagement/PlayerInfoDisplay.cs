@@ -10,9 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DungeonGame.PlayerManagement
-{
+{// this class displays all of the stats of the player such
+    // as the health and ammout of coins
     public class PlayerInfoDisplay
-    {
+    {  
         //PLAYER STATS
         int HEREplayerHealth;
         Texture2D justRedHearts;
@@ -34,6 +35,7 @@ namespace DungeonGame.PlayerManagement
 
         public void LoadContent(ContentManager Content, Player p)
         {
+            // fetches the textures 
             heartTextureAtlas = Content.Load<Texture2D>("PlayerTextures/heartTextureAtlasx32");
             justRedHearts = Content.Load<Texture2D>("PlayerTextures/heartTextureAtlasx32JUSTRED");
             coinTexture = Content.Load<Texture2D>("Entities/singleCoinTexture96x32");
@@ -74,6 +76,7 @@ namespace DungeonGame.PlayerManagement
 
         public void Draw(SpriteBatch _spriteBatch)
         {
+            // draws all of the items to the screen
             _spriteBatch.Draw(blkPxl, blkPxlRect, new Color(Color.Black, 0.6f));
             _spriteBatch.Draw(coinTexture, coinRect, Color.White);
             _spriteBatch.DrawString(EngOldFont18, HEREplayerCoins, textPos, Color.White);

@@ -11,18 +11,22 @@ namespace DungeonGame.BackendDev
     public class FileManager
     {
         public FileManager() { }
-        static string dirFromRoot = "\\Recources\\";
+        static string dirFromRoot = "\\Recources\\"; // sets root directory
 
+        // reads data from CSV format
         public List<string> ReadCSVData(string fileName)
         {
+            // creates a list for data to be inserted into
             List<string> readData = new List<string>();
+            // opens the file
             string dir = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().Length)  + dirFromRoot + fileName;
             TextReader f = new StreamReader(dir);
 
             string data;
+            // reads the data until there is no data left to read
             while ((data = f.ReadLine()) != null)
             {
-                string[] newData = data.Split(',');
+                string[] newData = data.Split(','); // splits data by commas
                 for (int i = 0; i < newData.Length; i++)
                 {
                     readData.Add(newData[i]);
@@ -38,11 +42,12 @@ namespace DungeonGame.BackendDev
         {
 
             List<string> readData = new List<string>();
+            // opens file
             string dir = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().Length) + dirFromRoot + "\\SavedData\\" + fileName;
             TextReader f = new StreamReader(dir);
 
             string data;
-            while ((data = f.ReadLine()) != null)
+            while ((data = f.ReadLine()) != null)// reads data line by line
             {
                 readData.Add(data);
             }
@@ -51,6 +56,7 @@ namespace DungeonGame.BackendDev
 
         public void writeLineToFile(string fileName, string data)
         {
+            // writes data to the file passed in as a parameter
             string dir = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().Length) + dirFromRoot + "\\SavedData\\" + fileName;
             TextWriter f = new StreamWriter(dir);
             f.WriteLine($"{data}");
@@ -59,6 +65,7 @@ namespace DungeonGame.BackendDev
 
         public char[,] ReadMapFile(string fileName)
         {
+            // reads a file that is encoded in my map storage format.
             char[,] readData = new char[100, 100];
             string dir = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().Length) + dirFromRoot+ "\\Maps\\" + fileName;
             TextReader f = new StreamReader(dir);
@@ -66,7 +73,7 @@ namespace DungeonGame.BackendDev
             int j = 0;
 
             string[] objIDList;
-
+            // seperates the values for specific tiles.
             string data;
             while ((data = f.ReadLine()) != null)
             {
