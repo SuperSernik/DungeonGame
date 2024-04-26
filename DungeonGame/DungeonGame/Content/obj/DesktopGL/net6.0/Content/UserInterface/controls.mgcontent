@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/UserInterface/controls.png</SourceFile>
-  <SourceTime>2023-03-13T19:38:28.4902781+00:00</SourceTime>
-  <DestFile>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/bin/DesktopGL/Content/UserInterface/controls.xnb</DestFile>
-  <DestTime>2023-03-13T19:38:31.5131386+00:00</DestTime>
+  <SourceFile>G:/Github/DungeonGame/DungeonGame/DungeonGame/Content/UserInterface/controls.png</SourceFile>
+  <SourceTime>2024-04-26T11:57:10.1166973+01:00</SourceTime>
+  <DestFile>G:/Github/DungeonGame/DungeonGame/DungeonGame/Content/bin/DesktopGL/Content/UserInterface/controls.xnb</DestFile>
+  <DestTime>2024-04-26T11:58:32.4052266+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T12:44:56+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><SourceFile>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/Fonts/Arial32.spritefont</SourceFile><SourceTime>2022-09-22T19:43:27.4337689+01:00</SourceTime><DestFile>E:/Damo/Academia Work/Computer Science/Computer Science Coursework/GitHub Release/DungeonGame/DungeonGame/DungeonGame/Content/bin/DesktopGL/Content/Fonts/Arial32.xnb</DestFile><DestTime>2022-10-30T13:47:56.4650857+00:00</DestTime><Importer>FontDescriptionImporter</Importer><ImporterTime>2022-07-26T12:44:56+01:00</ImporterTime><Processor>FontDescriptionProcessor</Processor><ProcessorTime>2022-07-26T12:44:56+01:00</ProcessorTime><Parameters><Key>PremultiplyAlpha</Key><Value>True</Value></Parameters><Parameters><Key>TextureFormat</Key><Value>Compressed</Value></Parameters><Dependencies /><BuildAsset /><BuildOutput /></PipelineBuildEvent>
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>G:/Github/DungeonGame/DungeonGame/DungeonGame/Content/Fonts/Arial32.spritefont</SourceFile>
+  <SourceTime>2024-04-26T11:57:10.1031838+01:00</SourceTime>
+  <DestFile>G:/Github/DungeonGame/DungeonGame/DungeonGame/Content/bin/DesktopGL/Content/Fonts/Arial32.xnb</DestFile>
+  <DestTime>2024-04-26T11:58:30.5229544+01:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2022-07-26T12:44:56+01:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2022-07-26T12:44:56+01:00</ProcessorTime>
+  <Parameters>
+    <Key>PremultiplyAlpha</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

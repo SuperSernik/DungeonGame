@@ -1,0 +1,137 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\Github\\DungeonGame\\DungeonGame\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|g:\\github\\dungeongame\\dungeongame\\dungeongame\\content\\weapons\\weaponsatlas.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|solutionrelative:dungeongame\\content\\weapons\\weaponsatlas.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|g:\\github\\dungeongame\\dungeongame\\dungeongame\\content\\bullets\\whitebullet.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|solutionrelative:dungeongame\\content\\bullets\\whitebullet.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|g:\\github\\dungeongame\\dungeongame\\dungeongame\\screenmanagement\\screenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|solutionrelative:dungeongame\\screenmanagement\\screenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|G:\\Github\\DungeonGame\\DungeonGame\\dungeongame\\itemmanagement\\items\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|solutionrelative:dungeongame\\itemmanagement\\items\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|G:\\Github\\DungeonGame\\DungeonGame\\dungeongame\\itemmanagement\\items\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|solutionrelative:dungeongame\\itemmanagement\\items\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|G:\\Github\\DungeonGame\\DungeonGame\\dungeongame\\screenmanagement\\overlaymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|solutionrelative:dungeongame\\screenmanagement\\overlaymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|G:\\Github\\DungeonGame\\DungeonGame\\dungeongame\\screenmanagement\\screens\\userscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6FE2C5D2-8E67-4CB6-B469-471F63B27B13}|DungeonGame\\DungeonGame.csproj|solutionrelative:dungeongame\\screenmanagement\\screens\\userscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 52,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "weaponsAtlas.png",
+              "DocumentMoniker": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\Content\\Weapons\\weaponsAtlas.png",
+              "RelativeDocumentMoniker": "DungeonGame\\Content\\Weapons\\weaponsAtlas.png",
+              "ToolTip": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\Content\\Weapons\\weaponsAtlas.png",
+              "RelativeToolTip": "DungeonGame\\Content\\Weapons\\weaponsAtlas.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-04-26T11:47:58.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "whiteBullet.png",
+              "DocumentMoniker": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\Content\\Bullets\\whiteBullet.png",
+              "RelativeDocumentMoniker": "DungeonGame\\Content\\Bullets\\whiteBullet.png",
+              "ToolTip": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\Content\\Bullets\\whiteBullet.png",
+              "RelativeToolTip": "DungeonGame\\Content\\Bullets\\whiteBullet.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-04-26T11:47:47.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Food.cs",
+              "DocumentMoniker": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\ItemManagement\\Items\\Food.cs",
+              "RelativeDocumentMoniker": "DungeonGame\\ItemManagement\\Items\\Food.cs",
+              "ToolTip": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\ItemManagement\\Items\\Food.cs",
+              "RelativeToolTip": "DungeonGame\\ItemManagement\\Items\\Food.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAFgAAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T10:57:37.831Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Weapon.cs",
+              "DocumentMoniker": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\ItemManagement\\Items\\Weapon.cs",
+              "RelativeDocumentMoniker": "DungeonGame\\ItemManagement\\Items\\Weapon.cs",
+              "ToolTip": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\ItemManagement\\Items\\Weapon.cs",
+              "RelativeToolTip": "DungeonGame\\ItemManagement\\Items\\Weapon.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAqwCwAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T10:57:37.873Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ScreenManager.cs",
+              "DocumentMoniker": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\ScreenManagement\\ScreenManager.cs",
+              "RelativeDocumentMoniker": "DungeonGame\\ScreenManagement\\ScreenManager.cs",
+              "ToolTip": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\ScreenManagement\\ScreenManager.cs",
+              "RelativeToolTip": "DungeonGame\\ScreenManagement\\ScreenManager.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAAACAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T10:57:39.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OverlayManager.cs",
+              "DocumentMoniker": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\ScreenManagement\\OverlayManager.cs",
+              "RelativeDocumentMoniker": "DungeonGame\\ScreenManagement\\OverlayManager.cs",
+              "ToolTip": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\ScreenManagement\\OverlayManager.cs",
+              "RelativeToolTip": "DungeonGame\\ScreenManagement\\OverlayManager.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAA3wD0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T10:57:40.193Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserScreen.cs",
+              "DocumentMoniker": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\ScreenManagement\\Screens\\UserScreen.cs",
+              "RelativeDocumentMoniker": "DungeonGame\\ScreenManagement\\Screens\\UserScreen.cs",
+              "ToolTip": "G:\\Github\\DungeonGame\\DungeonGame\\DungeonGame\\ScreenManagement\\Screens\\UserScreen.cs",
+              "RelativeToolTip": "DungeonGame\\ScreenManagement\\Screens\\UserScreen.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAA3wAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T10:57:40.194Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
